@@ -215,3 +215,14 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 /* End: Why us section styles */
+/* Ensure the body takes full height and uses Flexbox */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full height of the viewport */
+}
+
+/* Main content takes available space */
+main {
+    flex: 1; /* Grow to fill available space */
+}
