@@ -1,60 +1,38 @@
-/* header starts */
-/* Navbar styling */
-nav {
-    color: white; /* Set text color to white */
-}
+/* Theme colors */
+/* Primary theme color: rgb(12, 63, 95) */
+/* Secondary theme color: rgb(101, 102, 102) */
 
-nav a {
-    color: inherit; /* Inherit color from nav for links */
-}
 
-nav a:hover {
-    color: rgb(220, 220, 220); /* Lighter color for links on hover */
+/* Global Styles */
+/* Start: Global styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
 }
+/* End: Global styles */
 
-#nav_bar_search {
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-}
 
-#navbar_form {
-    display: flex;
-    align-items: center;
-}
+/* Header Styles */
+/* Start: Header styles */
+/* Header-specific styling goes here */
+/* End: Header styles */
 
-#navbar_form input {
-    margin-right: 8px; /* Space between input and button */
-}
 
-/* Navbar button styling */
-.navbar-nav .btn {
-    border-radius: 20px; /* Rounded buttons */
-    padding: 6px 12px; /* Button padding */
-    background-color: rgb(12, 63, 95); /* Matching button color */
-    color: white;
-}
+/* Navbar Styles */
+/* Start: Navbar styles */
+/* Navbar-specific styling goes here */
+/* End: Navbar styles */
 
-.navbar-nav .btn:hover {
-    background-color: rgb(10, 50, 80); /* Darker shade on hover */
-}
 
-/* Navbar background styling */
-.navbar {
-    background: linear-gradient(to left, rgb(12, 63, 95), rgb(101, 102, 102)); /* Gradient background */
-    padding: 10px; /* Adjust padding if necessary */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
-}
-/* header ends */
-
-/* banner starts */
+/* Banner Styles */
+/* Start: Banner styles */
 #banner {
     display: flex; /* Use flexbox to align items side by side */
     align-items: center; /* Vertically center the content */
     justify-content: space-between; /* Space out the text and image */
     width: 100%;
-    background: linear-gradient(to left, rgb(12, 63, 95), rgb(101, 102, 102));
-    padding: 10px; /* Reduced padding */
+    background: linear-gradient(rgb(12, 63, 95), rgba(61, 102, 102, 0.623));
     box-sizing: border-box; /* Include padding in width */
     margin-top: 70px;
     margin-bottom: 70px;
@@ -102,19 +80,19 @@ nav a:hover {
     max-width: 80%; /* Reduce image size */
     height: auto; /* Maintain aspect ratio */
 }
-/* banner ends */
+/* End: Banner styles */
 
-/* Success story styling */
-/* Banner styling */
+
+/* Success Story Styles */
+/* Start: Success story styles */
 .banner-success-story {
-    display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: rgb(240, 240, 240); /* Light grey background */
+    background-color: rgba(76, 129, 129, 0.521); /* Light grey background */
     padding: 20px;
-    margin: 20px 0;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 5px;
 }
 
 .banner-left {
@@ -158,28 +136,34 @@ nav a:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments for success story */
 @media (max-width: 768px) {
     .banner-success-story {
         flex-direction: column;
         text-align: center;
     }
 
-    .banner-left, .banner-right {
+    .banner-left,
+    .banner-right {
         padding: 0;
         margin-bottom: 20px;
     }
 }
-/* Success story ends */
+/* End: Success story styles */
 
-/* Carousel container starts */
+/* main{
+    background-color: rgba(59, 119, 119, 0.521);
+} */
+/* Carousel Styles */
+/* Start: Carousel container styles */
 #carousel-container1 {
     width: 100%;
 }
-/* Carousel container ends */
+/* End: Carousel container styles */
 
-/* What we offer starts */
-/* Style for the "Why select Ghor School?" section */
+
+/* Why Us Section Styles */
+/* Start: Why us section styles */
 #why_us {
     background-color: rgb(240, 240, 240); /* Light background */
     padding: 30px 15px;
@@ -191,7 +175,7 @@ nav a:hover {
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 15px;
-    color: rgb(12, 63, 95); /* Heading color to match banner */
+    color: rgb(51, 79, 97); /* Heading color to match banner */
 }
 
 #top p {
@@ -230,4 +214,4 @@ nav a:hover {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-/* What we offer ends */
+/* End: Why us section styles */
