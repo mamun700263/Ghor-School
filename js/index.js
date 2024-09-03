@@ -95,7 +95,7 @@ const displayCourse = (courses) => {
         li.innerHTML = `
             <div class="card shadow h-100">
                 <div class="ratio ratio-16x9">
-                    
+                    <img src="${baseUrl}/${element.thumbnail}" class="card-img-top" loading="lazy" alt="...">
                 </div>
                 <div class="card-body p-3 p-xl-5">
                     <h3 class="card-title h5">${element.name}</h3>
