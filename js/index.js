@@ -101,7 +101,7 @@ const displayCourse = (courses) => {
                     <h3 class="card-title h5">${element.name}</h3>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk
                         of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Details</a>
+                    <a href="html/course_detail.html" class="btn btn-primary">Details</a>
                 </div>
             </div>
         `;

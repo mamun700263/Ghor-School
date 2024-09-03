@@ -1,0 +1,26 @@
+/* Navbar styling */
+#nav_bar_search {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#navbar_form {
+    display: flex;
+    align-items: center;
+}
+
+#navbar_form input {
+    margin-right: 8px; /* Space between input and button */
+}
+
+/* Navbar button styling starts */
+.navbar-nav .btn {
+    border-radius: 20px; /* Rounded buttons */
+    padding: 6px 12px; /* Button padding */
+}
+
+
+/* Navbar button styling end */
+/* Navbar styling */
