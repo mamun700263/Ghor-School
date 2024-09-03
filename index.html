@@ -4,102 +4,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootstrap Starter Template</title>
+    <title>Ghor School - Learn with Us</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Swiffy Slider CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
     <!-- Custom CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet"
-        crossorigin="anonymous">
     <link href="style/index.css" rel="stylesheet">
 </head>
 
 <body>
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light mx-5">
-    <a class="navbar-brand" href="#">Ghor School</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <!-- Left aligned links -->
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="html/courses.html">Courses</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="html/success_stories.html">Success Stories</a>
-            </li>
-        </ul>
-
-        <!-- Search form -->
-        <div id="nav_bar_search" class="d-flex align-items-center mx-3">
-            <form class="form-inline my-2 my-lg-0" id="navbar_form">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </div>
-
-        <!-- Right aligned links -->
-        <ul class="navbar-nav ms-auto">
-            <li class="nav-item mx-2">
-                <a class="btn btn-outline-success " href="/signin">Log In</a>
-            </li>
-            <li class="nav-item ml-2">
-                <a class="btn btn-outline-primary " href="/signout">Sign Up</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-
-
-    <div class="courses w-75 mx-auto">
-        <div
-            class="swiffy-slider slider-item-show2 slider-item-reveal slider-nav-outside slider-nav-round slider-nav-visible slider-indicators-outside slider-indicators-round slider-indicators-dark slider-nav-animation slider-nav-animation-fadein slider-item-first-visible">
-            <ul class="slider-container py-4" id="ul">
-
-
-            </ul>
-
-            <button type="button" class="slider-nav" aria-label="Go left"></button>
-            <button type="button" class="slider-nav slider-nav-next" aria-label="Go left"></button>
-
-            <div class="slider-indicators">
-                <button class="active" aria-label="Go to slide"></button>
-                <button aria-label="Go to slide"></button>
-                <button aria-label="Go to slide"></button>
-                <button aria-label="Go to slide"></button>
-                <button aria-label="Go to slide"></button>
+    <!-- Navbar -->
+    <header>
+        <div id="navbar"></div>
+        <div id="banner">
+            <div id="banner-text">
+                <h1>We Are the Best</h1>
+                <p>Providing top-notch education and resources to help you achieve your goals. Join us and experience the difference in learning and growth.</p>
+                <a href="#learn-more" class="btn">Learn More</a>
+            </div>
+            <div id="banner-img">
+                <img src="images/logo.webp" alt="Logo">
             </div>
         </div>
+        
+    </header>
 
-    </div>
     <!-- Main Content -->
     <main role="main" class="container mt-5">
 
-        <div class="banner">
-            <div class="banner_left">
-                <!-- course title,description and rating will be on this side  -->
+        <!-- Success Story Banner -->
+        <div class="banner-success-story d-flex align-items-center">
+            <div class="banner-left pe-4">
+                <h2>Todays Success Story</h2>
+                <p>Meet Jane, one of our star students who transformed her career with our Python course. Starting with no coding experience, Jane now works as a software developer at a leading tech company.</p>
+                <a href="success_stories.html" class="btn btn-primary">Read More</a>
             </div>
-            <div class="banner_right">
-                <!-- <img src="/images/python-logo-only.png" alt="Python logo"> -->
+            <div class="banner-right">
+                <img src="images/success-story.jpg" alt="Success Story Image" class="img-fluid rounded">
             </div>
         </div>
-        <!-- <form action="" name="image" id="image_input">
 
-            <button type="submit">Upload</button>
-        </form> -->
-        <div class="courses"></div>
-        <div class="ratings"></div>
-        <div class="success_stories"></div>
-    </main><!-- /.container -->
+        <!-- Trending Courses Carousel -->
+        <section class="courses my-5">
+            <div id="carousel-header" class="text-center mb-4">
+                <h2>Trending Courses</h2>
+            </div>
+            <div class="swiffy-slider slider-item-show2 slider-item-reveal slider-nav-outside slider-nav-round slider-nav-visible slider-indicators-outside slider-indicators-round slider-indicators-dark slider-nav-animation slider-nav-animation-fadein slider-item-first-visible">
+                <ul class="slider-container py-4" id="ul">
+                    <!-- Carousel items go here -->
+                </ul>
 
-    <!-- Bootstrap JS, Popper.js, and jQuery -->
+                <!-- Carousel Controls -->
+                <button type="button" class="slider-nav" aria-label="Go left"></button>
+                <button type="button" class="slider-nav slider-nav-next" aria-label="Go right"></button>
 
+                <!-- Carousel Indicators -->
+                <div class="slider-indicators">
+                    <button class="active" aria-label="Go to slide"></button>
+                    <button aria-label="Go to slide"></button>
+                    <button aria-label="Go to slide"></button>
+                    <button aria-label="Go to slide"></button>
+                    <button aria-label="Go to slide"></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Us Section -->
+        <section class="ratings" id="why_us">
+            <div class="text-center my-4">
+                <h2>Why Select Ghor School?</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur aperiam temporibus accusamus aspernatur modi ipsam unde impedit vitae, sapiente esse, voluptas rem obcaecati itaque ex sint mollitia repellat iste enim.</p>
+            </div>
+            <div class="d-flex flex-wrap align-items-center">
+                <div id="what_we_offer_text" class="col-md-6 mb-4">
+                    <h6>More than +500 courses made for you. Non magna tempor sit at donec cursus adipiscing adipiscing ut at pharetra habitant sagittis tinciduntol.</h6>
+                    <button class="btn btn-primary mt-3">Explore More Courses</button>
+                </div>
+                <div id="what_we_offer_img" class="col-md-6 text-center">
+                    <img src="/images/static explorere.png" alt="Explore courses" class="img-fluid rounded">
+                </div>
+            </div>
+        </section>
+
+        <!-- Explore More Section -->
+        <section id="explore_more" class="my-5">
+            <div class="text-center mb-4">
+                <h2>What We Have?</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur aperiam temporibus accusamus aspernatur modi ipsam unde impedit vitae, sapiente esse, voluptas rem obcaecati itaque ex sint mollitia repellat iste enim.</p>
+            </div>
+            <div class="d-flex flex-wrap justify-content-center">
+                <!-- Card 1 -->
+                <div class="card m-3" style="width: 18rem;">
+                    <img src="images/platform.png" class="card-img-top" alt="Platform">
+                    <div class="card-body">
+                        <h5 class="card-title">Learn on Any Platform</h5>
+                        <p class="card-text">Explore a variety of courses that are accessible on all your devices, anywhere, anytime.</p>
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="card m-3" style="width: 18rem;">
+                    <img src="images/teachers.png" class="card-img-top" alt="Teachers">
+                    <div class="card-body">
+                        <h5 class="card-title">Expert Teachers</h5>
+                        <p class="card-text">Learn from the best in the industry, with experts who guide you every step of the way.</p>
+                        <a href="#" class="btn btn-primary">Meet Our Teachers</a>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="card m-3" style="width: 18rem;">
+                    <img src="images/categorys.png" class="card-img-top" alt="Categories">
+                    <div class="card-body">
+                        <h5 class="card-title">Diverse Categories</h5>
+                        <p class="card-text">Choose from a wide range of categories to find the course that fits your needs and interests.</p>
+                        <a href="#" class="btn btn-primary">Browse Categories</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <!-- Footer content loaded dynamically -->
+    </footer>
+
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src=“https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js”></script>
-    <!-- for the swiffy-slider -->
-    <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script> 
+    <!-- Swiffy Slider JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
+    <!-- Custom JS -->
     <script src="js/index.js"></script>
 </body>
 

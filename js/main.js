@@ -91,35 +91,6 @@ fetchCourses();
 
 
 
-
-
-const displayCourse = (courses) => {
-    courses.forEach(element => {
-        console.log(element.thumbnail); // Check the URL in the console
-
-        const parent = document.getElementById("ul");
-        const li = document.createElement('li');
-        li.innerHTML = `
-            <div class="card shadow h-100">
-                <div class="ratio ratio-16x9">
-                    <img src="${baseUrl}/${element.thumbnail}" class="card-img-top" loading="lazy" alt="...">
-                </div>
-                <div class="card-body p-3 p-xl-5">
-                    <h3 class="card-title h5">${element.name}</h3>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                        of the card's content.</p>
-                    <a href="html/course_detail.html" class="btn btn-primary">Details</a>
-                </div>
-            </div>
-        `;
-        parent.appendChild(li);
-    });
-}
-
-
-
-
-
 // footer section starts
 document.addEventListener('DOMContentLoaded', function() {
     fetch('html/parts_of_page/footer.html')
@@ -128,6 +99,5 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('footer').innerHTML = data;
         });
 });
-
 
 // footer section ends

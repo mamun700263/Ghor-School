@@ -1,0 +1,45 @@
+/* Navbar styling */
+.navbar {
+    background: linear-gradient(to left, rgb(12, 63, 95), rgb(101, 102, 102)); /* Gradient background */
+    padding: 10px; /* Adjust padding if necessary */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    color: white; /* Adjust color to fit theme */
+}
+
+.navbar-logo {
+    height: 50px; /* Adjust size as needed */
+    margin-left: 10px; /* Space between text and logo */
+}
+
+.navbar-nav .nav-link {
+    color: white; /* Ensure link color is readable */
+}
+
+.navbar-nav .nav-link:hover {
+    color: rgb(220, 220, 220); /* Lighter color on hover */
+}
+
+.btn-outline-success {
+    color: white; /* Ensure button text is readable */
+    border-color: white; /* Button border color */
+}
+
+.btn-outline-success:hover {
+    background-color: white; /* Button background on hover */
+    color: rgb(12, 63, 95); /* Change text color on hover */
+}
+
+.btn-outline-primary {
+    color: white; /* Ensure button text is readable */
+    border-color: white; /* Button border color */
+}
+
+.btn-outline-primary:hover {
+    background-color: white; /* Button background on hover */
+    color: rgb(12, 63, 95); /* Change text color on hover */
+}

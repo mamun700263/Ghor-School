@@ -1,9 +1,21 @@
+/* header starts */
 /* Navbar styling */
+nav {
+    color: white; /* Set text color to white */
+}
+
+nav a {
+    color: inherit; /* Inherit color from nav for links */
+}
+
+nav a:hover {
+    color: rgb(220, 220, 220); /* Lighter color for links on hover */
+}
+
 #nav_bar_search {
     display: flex;
     align-items: center;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
 }
 
 #navbar_form {
@@ -15,12 +27,207 @@
     margin-right: 8px; /* Space between input and button */
 }
 
-/* Navbar button styling starts */
+/* Navbar button styling */
 .navbar-nav .btn {
     border-radius: 20px; /* Rounded buttons */
     padding: 6px 12px; /* Button padding */
+    background-color: rgb(12, 63, 95); /* Matching button color */
+    color: white;
 }
 
+.navbar-nav .btn:hover {
+    background-color: rgb(10, 50, 80); /* Darker shade on hover */
+}
 
-/* Navbar button styling end */
-/* Navbar styling */
+/* Navbar background styling */
+.navbar {
+    background: linear-gradient(to left, rgb(12, 63, 95), rgb(101, 102, 102)); /* Gradient background */
+    padding: 10px; /* Adjust padding if necessary */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+}
+/* header ends */
+
+/* banner starts */
+#banner {
+    display: flex; /* Use flexbox to align items side by side */
+    align-items: center; /* Vertically center the content */
+    justify-content: space-between; /* Space out the text and image */
+    width: 100%;
+    background: linear-gradient(to left, rgb(12, 63, 95), rgb(101, 102, 102));
+    padding: 10px; /* Reduced padding */
+    box-sizing: border-box; /* Include padding in width */
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
+#banner-text {
+    text-align: center;
+    flex: 1; /* Allow text to take up available space */
+    max-width: 45%; /* Ensure text doesn't exceed 45% of the banner width */
+    color: rgb(255, 255, 255); /* Ensure text is readable */
+}
+
+#banner-text h1 {
+    font-size: 2.5rem; /* Reduced font size */
+    margin-bottom: 10px;
+}
+
+#banner-text p {
+    font-size: 1rem; /* Reduced font size */
+    margin-bottom: 15px; /* Reduced margin */
+    line-height: 1.4; /* Adjust line height */
+}
+
+#banner-text .btn {
+    background-color: rgb(12, 63, 95); /* Matching button color */
+    color: white;
+    padding: 8px 16px; /* Reduced button padding */
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9rem; /* Reduced font size */
+}
+
+#banner-text .btn:hover {
+    background-color: rgb(10, 50, 80); /* Darker shade on hover */
+}
+
+#banner-img {
+    flex: 1; /* Allow image container to take up available space */
+    max-width: 45%; /* Ensure image container doesn't exceed 45% of the banner width */
+    display: flex; /* Center image horizontally */
+    justify-content: center; /* Center image horizontally */
+}
+
+#banner-img img {
+    max-width: 80%; /* Reduce image size */
+    height: auto; /* Maintain aspect ratio */
+}
+/* banner ends */
+
+/* Success story styling */
+/* Banner styling */
+.banner-success-story {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(240, 240, 240); /* Light grey background */
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.banner-left {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.banner-left h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: rgb(12, 63, 95); /* Heading color to match banner */
+}
+
+.banner-left p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: rgb(51, 51, 51); /* Darker grey text */
+}
+
+.banner-left .btn {
+    background-color: rgb(12, 63, 95); /* Matching button color */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.banner-left .btn:hover {
+    background-color: rgb(10, 50, 80); /* Darker shade on hover */
+}
+
+.banner-right {
+    flex: 1;
+    text-align: center;
+}
+
+.banner-right img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .banner-success-story {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .banner-left, .banner-right {
+        padding: 0;
+        margin-bottom: 20px;
+    }
+}
+/* Success story ends */
+
+/* Carousel container starts */
+#carousel-container1 {
+    width: 100%;
+}
+/* Carousel container ends */
+
+/* What we offer starts */
+/* Style for the "Why select Ghor School?" section */
+#why_us {
+    background-color: rgb(240, 240, 240); /* Light background */
+    padding: 30px 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#top h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: rgb(12, 63, 95); /* Heading color to match banner */
+}
+
+#top p {
+    font-size: 1rem;
+    color: rgb(102, 102, 102); /* Slightly darker grey text */
+}
+
+#what_we_offer {
+    margin-top: 20px;
+}
+
+#what_we_offer_text {
+    padding-right: 20px;
+}
+
+#what_we_offer_text h6 {
+    font-size: 1.2rem;
+    color: rgb(12, 63, 95); /* Heading color to match banner */
+}
+
+#what_we_offer_text button {
+    font-size: 1rem;
+    background-color: rgb(12, 63, 95); /* Button color */
+    color: white;
+    border-radius: 5px;
+    padding: 8px 16px;
+}
+
+#what_we_offer_text button:hover {
+    background-color: rgb(10, 50, 80); /* Darker shade on hover */
+}
+
+#what_we_offer_img img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* What we offer ends */
