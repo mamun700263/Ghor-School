@@ -1,6 +1,6 @@
 // header section starts
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('parts_of_page/nav.html')
+    fetch('nav.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('navbar').innerHTML = data;
@@ -122,7 +122,7 @@ const displayCourse = (courses) => {
 
 // footer section starts
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('html/parts_of_page/footer.html')
+    fetch('footer.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('footer').innerHTML = data;

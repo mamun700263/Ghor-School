@@ -1,49 +1,56 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style/footer.css">
 </head>
-<body>
-    
-    <div class="container bg-light py-4">
-        <div class="row">
-            <div class="col-md-4">
-                <h5>About Us</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ut tincidunt interdum,
-                    risus est accumsan magna, eget cursus libero ligula nec nisi.</p>
-            </div>
-            <div class="col-md-4">
-                <h5>Quick Links</h5>
-                <ul class="list-unstyled">
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="courses.html">Courses</a></li>
-                    <li><a href="success_stories.html">Success Stories</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <div class="col-md-4">
-                <h5>Contact Us</h5>
-                <address>
-                    <p><i class="bi bi-geo-alt"></i> 123 Main Street, City, Country</p>
-                    <p><i class="bi bi-envelope"></i> <a href="mailto:info@example.com">info@example.com</a></p>
-                    <p><i class="bi bi-phone"></i> +123 456 7890</p>
-                </address>
-                <div class="social-media">
-                    <a href="#" class="text-dark me-3"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="text-dark me-3"><i class="bi bi-twitter"></i></a>
-                    <a href="#" class="text-dark me-3"><i class="bi bi-linkedin"></i></a>
-                    <a href="#" class="text-dark"><i class="bi bi-instagram"></i></a>
+<body class="d-flex flex-column min-vh-100" id="footer-body"> <!-- Flex container and full-height body -->
+
+    <!-- Main Content -->
+    <main class="flex-grow-1" id="main-content"> <!-- This will take up the remaining space -->
+        <!-- Your main content goes here -->
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer-main"> <!-- Footer now inside the Flexbox container -->
+        <div class="container bg-light" id="footer-content">
+            <div class="row py-4">
+                <div class="col-md-4" id="about-us">
+                    <h5>About Us</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ut tincidunt interdum,
+                        risus est accumsan magna, eget cursus libero ligula nec nisi.</p>
+                </div>
+                <div class="col-md-4" id="quick-links">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="success_stories.html">Success Stories</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4" id="contact-us">
+                    <h5>Contact Us</h5>
+                    <address>
+                        <p><i class="bi bi-geo-alt"></i> 123 Main Street, City, Country</p>
+                        <p><i class="bi bi-envelope"></i> <a href="mailto:info@example.com">info@example.com</a></p>
+                        <p><i class="bi bi-phone"></i> +123 456 7890</p>
+                    </address>
+                    <div class="social-media" id="social-media">
+                        <a href="#" class="text-dark me-3"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-dark me-3"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-dark me-3"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-dark"><i class="bi bi-instagram"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="text-center py-3 bg-dark text-light">
-        <p>&copy; 2024 Ghor School. All rights reserved.</p>
-    </div>
-<link rel="stylesheet" href="style/footer.css">
+        <div class="text-center py-3 bg-dark text-light" id="footer-bottom">
+            <p>&copy; 2024 Ghor School. All rights reserved.</p>
+        </div>
+    </footer>
+
 </body>
 </html>

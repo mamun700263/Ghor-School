@@ -1,0 +1,113 @@
+/* Ensure the body takes full height and uses Flexbox */
+#footer-body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full height of the viewport */
+}
+
+/* Main content takes available space */
+#main-content {
+    flex: 1; /* Grow to fill available space */
+}
+
+/* General footer styling */
+#footer-main {
+    background-color: #f8f9fa; /* Light background color for the footer */
+    padding: 20px 0;
+    border-top: 1px solid #dee2e6; /* Light border at the top of the footer */
+}
+
+/* Styling the main container in the footer */
+#footer-content {
+    max-width: 1200px; /* Max width for large screens */
+    margin: 0 auto; /* Center the container */
+}
+
+/* Styling for the "About Us" section */
+#about-us {
+    margin-bottom: 20px;
+}
+
+#about-us h5 {
+    font-size: 1.25rem; /* Slightly larger font size for section headers */
+    margin-bottom: 10px;
+}
+
+#about-us p {
+    font-size: 0.875rem; /* Slightly smaller font size for paragraph text */
+}
+
+/* Styling for the "Quick Links" section */
+#quick-links {
+    margin-bottom: 20px;
+}
+
+#quick-links h5 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+#quick-links ul {
+    padding-left: 0;
+}
+
+#quick-links li {
+    margin-bottom: 5px;
+}
+
+#quick-links a {
+    text-decoration: none;
+    color: #007bff; /* Bootstrap primary color */
+}
+
+#quick-links a:hover {
+    text-decoration: underline;
+}
+
+/* Styling for the "Contact Us" section */
+#contact-us {
+    margin-bottom: 20px;
+}
+
+#contact-us h5 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+#contact-us address {
+    font-style: normal; /* Remove default italic style */
+}
+
+#contact-us p {
+    margin-bottom: 5px;
+}
+
+#contact-us a {
+    color: #007bff;
+}
+
+#contact-us a:hover {
+    text-decoration: underline;
+}
+
+/* Styling for the social media icons */
+#social-media {
+    margin-top: 10px;
+}
+
+#social-media a {
+    font-size: 1.25rem; /* Larger icon size */
+    color: #343a40; /* Dark color for icons */
+    margin-right: 15px;
+    text-decoration: none;
+}
+
+#social-media a:hover {
+    color: #007bff; /* Change color on hover */
+}
+
+/* Styling for the footer bottom */
+#footer-bottom {
+    background-color: #343a40; /* Dark background color */
+    color: #ffffff; /* Light text color */
+}
