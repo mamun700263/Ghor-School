@@ -1,15 +1,7 @@
-// header section starts
-document.addEventListener('DOMContentLoaded', function() {
-    fetch('nav.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('navbar').innerHTML = data;
-        });
-});
-// header section ends
 
-// const baseUrl = "http://127.0.0.1:8000";
-const baseUrl = "https://online-school-1wkk.onrender.com";
+
+const baseUrl = "http://127.0.0.1:8000";
+// const baseUrl = "https://online-school-1wkk.onrender.com";
 const studentApiUrl = `${baseUrl}/accounts/student_list/`;
 const teacherApiUrl = `${baseUrl}/accounts/teacher_list/`;
 const skillApiUrl = `${baseUrl}/skill/skills/`;
@@ -120,14 +112,3 @@ const displayCourse = (courses) => {
 
 
 
-// footer section starts
-document.addEventListener('DOMContentLoaded', function() {
-    fetch('footer.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('footer').innerHTML = data;
-        });
-});
-
-
-// footer section ends
