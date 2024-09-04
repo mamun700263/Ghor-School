@@ -1,5 +1,5 @@
-// const baseUrl = "https://online-school-1wkk.onrender.com";
-const baseUrl = "http://127.0.0.1:8000";
+const baseUrl = "https://online-school-1wkk.onrender.com";
+// const baseUrl = "http://127.0.0.1:8000";
 const imgbbApiKey = "0582ac2891ffebcd2e07d50f6e11524a"; 
 const courseApiUrl = `${baseUrl}/skill/courses/`;
 const skillsApiUrl = `${baseUrl}/skill/skills/`;
