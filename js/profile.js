@@ -1,8 +1,8 @@
-
-// const baseUrl = "http://127.0.0.1:8000";
+// Set up the API URLs
 const baseUrl = "https://online-school-1wkk.onrender.com";
 const profileApiUrl = `${baseUrl}/accounts/profile/`;
 
+// Run these functions when the DOM content is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
     fetchProfileData();
 
@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Fetch profile data
 function fetchProfileData() {
     const token = localStorage.getItem('authToken');
     if (!token) {
@@ -68,8 +69,7 @@ function fetchProfileData() {
     });
 }
 
-
-
+// Update profile data
 function updateProfileData() {
     const token = localStorage.getItem('authToken');
     if (!token) {
@@ -102,15 +102,13 @@ function updateProfileData() {
     });
 }
 
-
-//https://api.imgbb.com/1/upload?key=0582ac2891ffebcd2e07d50f6e11524a
+// Upload profile picture to imgbb and update backend
 function uploadProfilePicture(file) {
     const apiKey = '0582ac2891ffebcd2e07d50f6e11524a';
     const imgbbUrl = `https://api.imgbb.com/1/upload?key=${apiKey}`;
 
     const formData = new FormData();
     formData.append('image', file);
-    console.log(formData);
 
     fetch(imgbbUrl, {
         method: 'POST',
@@ -122,7 +120,7 @@ function uploadProfilePicture(file) {
             const imageUrl = data.data.url;
             document.getElementById('profile-picture').src = imageUrl;
 
-            // Optionally, save the URL to the user's profile in your own backend
+            // Update profile picture in the backend
             updateProfilePictureInBackend(imageUrl);
         } else {
             throw new Error(`Upload failed: ${data.error.message}`);
@@ -134,6 +132,7 @@ function uploadProfilePicture(file) {
     });
 }
 
+// Update profile picture URL in the backend
 function updateProfilePictureInBackend(imageUrl) {
     const token = localStorage.getItem('authToken');
     if (!token) {
