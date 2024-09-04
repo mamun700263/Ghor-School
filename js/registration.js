@@ -1,4 +1,5 @@
-const baseUrl = "https://online-school-1wkk.onrender.com";
+// const baseUrl = "https://online-school-1wkk.onrender.com";
+const baseUrl = "http://127.0.0.1:8000";
 const studentApiUrl = `${baseUrl}/accounts/student/`;
 const teacherApiUrl = `${baseUrl}/accounts/teacher/`;
 
@@ -55,7 +56,7 @@ function submitForm(event) {
             alert('Registration successful!');
             window.location.href = 'login.html'; 
         } else {
-            alert('Registration failed: ' + (data.message || 'Unknown error'));
+            alert((data.message || 'Unknown error'));
         }
     })
     .catch(error => {
