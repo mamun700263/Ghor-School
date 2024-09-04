@@ -59,7 +59,7 @@ function fetchProfileData() {
         document.getElementById('date_of_birth-input').value = data.date_of_birth || '';
 
         if(role === 'Teacher') {
-            document.getElementById("upload").innerHTML = '<a href="upload_course.html">Upload Course</a>';
+            document.getElementById("upload").innerHTML = '<a href="upload_course.html" class="btn btn-warning" >Upload Course</a>';
         }
     })
     .catch(error => {

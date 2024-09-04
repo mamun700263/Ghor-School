@@ -72,12 +72,18 @@
                                 <input type="text" class="form-control" id="name-input" name="name" required>
                             </div>
                             <div class="mb-3">
-                                <label for="teachers-input" class="form-label">Teachers</label>
-                                <input type="text" class="form-control" id="teachers-input" name="teachers" placeholder="Enter teacher IDs separated by commas" required>
+                                <label for="description-input" class="form-label">Description</label>
+                                <textarea class="form-control" id="description-input" name="description" rows="3" required></textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="thumbnail-input" class="form-label">Thumbnail</label>
                                 <input type="file" class="form-control" id="thumbnail-input" name="thumbnail" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="skills-input" class="form-label">Skills</label>
+                                <select multiple class="form-control" id="skills-input" name="skills" required>
+                                    <!-- Options will be populated by JavaScript -->
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <label for="paid-input" class="form-label">Is the course paid?</label>
@@ -104,6 +110,9 @@
             </div>
         </div>
     </main>
+    
+    
+    
 
     <footer id="footer">
     </footer>
