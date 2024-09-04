@@ -1,6 +1,8 @@
-const courseApiUrl = "http://127.0.0.1:8000/skill/courses/";
-const imgbbApiKey = "YOUR_IMGBB_API_KEY"; // Replace with your actual imgbb API key
 
+// const baseUrl = "http://127.0.0.1:8000";
+const baseUrl = "https://online-school-1wkk.onrender.com";
+const imgbbApiKey = "YOUR_IMGBB_API_KEY"; 
+const courseApiUrl =`${baseUrl}/skill/courses/`;
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('course-upload-form');
     const paidInput = document.getElementById('paid-input');
