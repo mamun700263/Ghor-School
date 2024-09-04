@@ -1,5 +1,5 @@
-// const baseUrl = "https://online-school-1wkk.onrender.com";
-const baseUrl = "http://127.0.0.1:8000";
+const baseUrl = "https://online-school-1wkk.onrender.com";
+// const baseUrl = "http://127.0.0.1:8000";
 const loginApiUrl = `${baseUrl}/accounts/login/`;
 
 document.getElementById('login-form').addEventListener('submit', submitLoginForm);
