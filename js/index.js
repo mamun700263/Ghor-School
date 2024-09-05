@@ -86,24 +86,29 @@ fetchCourses();
 
 
 const displayCourse = (courses) => {
+
     courses.forEach(element => {
         const parent = document.getElementById("ul");
+        if (!parent) {
+            console.error("Parent element not found!");
+            return;
+        }
+
         const li = document.createElement('li');
-        // const imgbbUrl = element.taken_by.profile_photo;
-        // if(!imgbbUrl){
-        //     imgbbUrl = 'images/User-Profile-PNG-Clipart.png';
-        // }
+        const description = element.description.split(' ').slice(0, 10).join(' ') + '...';
+
+
         li.innerHTML = `
-            <div class="card shadow h-100">
+            <div class="card shadow h-50 w-75">
                 <div class="ratio ratio-16x9">
                     <img src="${element.thumbnail}" class="card-img-top" loading="lazy" alt="Course Thumbnail">
                 </div>
                 <div class="card-body p-3 p-xl-5">
                     <h3 class="card-title h5">${element.name}</h3>
-                    <p class="card-text">${element.description}</p>
-                        <div class="d-flex align-items-center" style="background-color: rgba(44, 130, 164, 0.01);">
+                    <p class="card-text">${description}</p>
+                    <div class="d-flex align-items-center" style="background-color: rgba(44, 130, 164, 0.01);">
                         <img src="${element.taken_by.profile_photo}" alt="Teacher Profile Photo" class="rounded-circle me-2" style="width: 40px; height: 40px;">
-                        <p class="card-text mb-0" style="background-color: rgba(44, 130, 164, 0.756);">${element.taken_by}</p>
+                        <p class="card-text mb-0" style="background-color: rgba(44, 130, 164, 0.756);">${element.taken_by.account}</p> 
                     </div>
                     <a href="course_detail.html" class="btn btn-primary mt-3">Details</a>
                 </div>
