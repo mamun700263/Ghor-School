@@ -1,7 +1,6 @@
+const baseUrl = "http://127.0.0.1:8000";
+// const baseUrl = "https://online-school-1wkk.onrender.com";
 
-
-// const baseUrl = "http://127.0.0.1:8000";
-const baseUrl = "https://online-school-1wkk.onrender.com";
 const studentApiUrl = `${baseUrl}/accounts/student_list/`;
 const teacherApiUrl = `${baseUrl}/accounts/teacher_list/`;
 const skillApiUrl = `${baseUrl}/skill/skills/`;
@@ -108,7 +107,7 @@ const displayCourse = (courses) => {
                     <p class="card-text">${description}</p>
                     <div class="d-flex align-items-center" style="background-color: rgba(44, 130, 164, 0.01);">
                         <img src="${element.taken_by.profile_photo}" alt="Teacher Profile Photo" class="rounded-circle me-2" style="width: 40px; height: 40px;">
-                        <p class="card-text mb-0" style="background-color: rgba(44, 130, 164, 0.756);">${element.taken_by.account}</p> 
+                        <p class="card-text mb-0" style="background-color: rgba(44, 130, 164, 0.756);">${element.taken_by.user.username}</p> 
                     </div>
                     <a href="course_detail.html" class="btn btn-primary mt-3">Details</a>
                 </div>

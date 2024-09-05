@@ -226,3 +226,6 @@ body {
 main {
     flex: 1; /* Grow to fill available space */
 }
+.slider-container .slider-item {
+    opacity: 1 !important;
+}

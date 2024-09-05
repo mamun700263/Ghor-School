@@ -1,5 +1,11 @@
-// const baseUrl = "http://127.0.0.1:8000";
-const baseUrl = "https://online-school-1wkk.onrender.com";
+const baseUrl = "http://127.0.0.1:8000";
+// const baseUrl = "https://online-school-1wkk.onrender.com";
+
+
+
+
+
+
 const studentApiUrl = `${baseUrl}/accounts/student_list/`;
 const teacherApiUrl = `${baseUrl}/accounts/teacher_list/`;
 const skillApiUrl = `${baseUrl}/skill/skills/`;
@@ -82,14 +88,14 @@ const displaySkills = (skills) => {
         const skillElement = document.createElement('div');
         skillElement.className = 'skill-item';
         skillElement.innerHTML = `
-            <h3>${skill.name}</h3>
-            <p>${skill.description}</p>
+            <h3 class="m-3 bg-primary">${skill.name}</h3>
+            <!-- <p>${skill.description}</p>-->
         `;
         skillsContainer.appendChild(skillElement);
     });
 };
 
-// Function to display courses in the HTML
+
 const displayCourses = (courses) => {
     const coursesContainer = document.getElementById('courses-container');
     coursesContainer.innerHTML = ''; // Clear previous content
@@ -97,15 +103,55 @@ const displayCourses = (courses) => {
     courses.forEach(course => {
         const courseElement = document.createElement('div');
         courseElement.className = 'course-item';
+
+        // Handle course.skills as a list of skill names
+        const skills = course.skills.map(skill => skill.name).join(', ');
+
         courseElement.innerHTML = `
-            <h3>${course.name}</h3>
-            <p>${course.description}</p>
-            <p><strong>Instructor:</strong> ${course.taken_by}</p>
-            <p><strong>Price:</strong> ${course.price}</p>
+            <div class="card m-2 justify-spacearound" style="width: 18rem;">
+                <img src="${course.thumbnail}" class="card-img-top" alt="Course Thumbnail">
+                <div class="card-body">
+                    <h5 class="card-title">${course.name}</h5>
+                    <p class="card-text">${course.description}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Skills: ${skills}</li>
+            <li class="list-group-item">Taken By: ${course.taken_by.user.username}</li>
+                    <li class="list-group-item">Rating: ${course.rating}</li>
+                </ul>
+                <div class="card-body">
+                    <a href="#" class="card-link">Course Details</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
         `;
         coursesContainer.appendChild(courseElement);
     });
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Function calls to fetch data
 fetchStudents();
