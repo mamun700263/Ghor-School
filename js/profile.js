@@ -123,3 +123,9 @@ function updateProfilePictureInBackend(imageUrl) {
         document.getElementById('update-message').innerText = 'Failed to update profile picture.';
     });
 }
+
+
+document.getElementById('logout').addEventListener('click', () => {
+    localStorage.removeItem('authToken'); 
+    window.location.href = 'login.html'; 
+});
