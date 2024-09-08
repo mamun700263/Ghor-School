@@ -1,15 +1,10 @@
+// Set up the API URLs
+const baseUrl = "http://127.0.0.1:8000";
+// const baseUrl = "https://online-school-1wkk.onrender.com";
 
-
-// // header section starts
-// document.addEventListener('DOMContentLoaded', function() {
-//     fetch('nav.html')
-//         .then(response => response.text())
-//         .then(data => {
-//             document.getElementById('navbar').innerHTML = data;
-//         });
-// });
-// // header section ends
-
+const imgbbApiKey = "0582ac2891ffebcd2e07d50f6e11524a"; 
+const profileApiUrl = `${baseUrl}/accounts/profile/`;
+let Account_id = 0;
 
 // footer section starts
 document.addEventListener('DOMContentLoaded', function() {
@@ -20,32 +15,42 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 });
 
-
 // footer section ends
 
-
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     const authToken = localStorage.getItem('authToken');
     const navElement = document.getElementById("profile_login");
-    console.log(authToken);
 
     if (authToken) {
+        try {
+            const response = await fetch(profileApiUrl, {
+                headers: {
+                    'Authorization': `Token ${authToken}`
+                }
+            });
 
-        navElement.innerHTML = `
-            <li class="nav-item mx-2">
-                <a class="btn btn-success" href="profile.html">Profile</a>
-            </li>
-            <li class="nav-item mx-2">
-                <a class="btn btn-primary" href="#" id="logout">Logout</a>
-            </li>
-        `;
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
 
-        document.getElementById('logout').addEventListener('click', () => {
-            localStorage.removeItem('authToken'); 
-            window.location.href = 'login.html'; 
-        });
+            const data = await response.json();
+            const link = data.profile_picture || 'images/User-Profile-PNG-Clipart.png';
+
+            navElement.innerHTML = `
+                <a href="profile.html">
+                    <img src="${link}" alt="Profile Picture" style="
+                        width: 50px; 
+                        height: 50px; 
+                        border-radius: 50%; 
+                        cursor: pointer; 
+                        object-fit: cover;
+                    ">
+                </a>
+            `;
+        } catch (error) {
+            console.error('Error: from basic.js', error);
+        }
     } else {
-        // User is not logged in
         navElement.innerHTML = `
             <li class="nav-item mx-2">
                 <a class="btn btn-primary" href="login.html">Login</a>
@@ -56,3 +61,5 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     }
 });
+
+const teacher_id = Account_id;

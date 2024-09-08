@@ -1,26 +1,13 @@
-/* Ensure the body takes full height and uses Flexbox */
-#footer-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Full height of the viewport */
-}
-
-/* Main content takes available space */
-#main-content {
-    flex: 1; /* Grow to fill available space */
-}
-
 /* General footer styling */
 #footer-main {
-    background-color: #f8f9fa; /* Light background color for the footer */
+    background-color: #4c5b6a; /* Light background color for the footer */
     padding: 20px 0;
     border-top: 1px solid #dee2e6; /* Light border at the top of the footer */
 }
 
 /* Styling the main container in the footer */
 #footer-content {
-    max-width: 1200px; /* Max width for large screens */
-    margin: 0 auto; /* Center the container */
+    color: #ffffff; /* Light text color */
 }
 
 /* Styling for the "About Us" section */
@@ -29,19 +16,15 @@
 }
 
 #about-us h5 {
-    font-size: 1.25rem; /* Slightly larger font size for section headers */
+    font-size: 1.25rem;
     margin-bottom: 10px;
 }
 
 #about-us p {
-    font-size: 0.875rem; /* Slightly smaller font size for paragraph text */
+    font-size: 0.875rem;
 }
 
 /* Styling for the "Quick Links" section */
-#quick-links {
-    margin-bottom: 20px;
-}
-
 #quick-links h5 {
     font-size: 1.25rem;
     margin-bottom: 10px;
@@ -57,7 +40,7 @@
 
 #quick-links a {
     text-decoration: none;
-    color: #007bff; /* Bootstrap primary color */
+    color: #007bff;
 }
 
 #quick-links a:hover {
@@ -65,10 +48,6 @@
 }
 
 /* Styling for the "Contact Us" section */
-#contact-us {
-    margin-bottom: 20px;
-}
-
 #contact-us h5 {
     font-size: 1.25rem;
     margin-bottom: 10px;
@@ -96,18 +75,34 @@
 }
 
 #social-media a {
-    font-size: 1.25rem; /* Larger icon size */
-    color: #343a40; /* Dark color for icons */
+    font-size: 1.25rem;
     margin-right: 15px;
     text-decoration: none;
 }
 
-#social-media a:hover {
-    color: #007bff; /* Change color on hover */
+#social-media .bi-facebook {
+    color: #4267B2; /* Facebook blue */
 }
 
-/* Styling for the footer bottom */
+#social-media .bi-twitter {
+    color: #1DA1F2; /* Twitter blue */
+}
+
+#social-media .bi-linkedin {
+    color: #0A66C2; /* LinkedIn blue */
+}
+
+#social-media .bi-instagram {
+    color: #E1306C; /* Instagram gradient color */
+}
+
+#social-media a:hover {
+    opacity: 0.8; /* Subtle hover effect */
+}
+
+/* Footer bottom styling */
 #footer-bottom {
-    background-color: #343a40; /* Dark background color */
-    color: #ffffff; /* Light text color */
+    background-color: rgb(12, 63, 95); /* Dark background color */
+    color: #ffffff;
+    font-size: 0.875rem;
 }

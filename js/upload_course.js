@@ -1,6 +1,3 @@
-// const baseUrl = "http://127.0.0.1:8000";
-const baseUrl = "https://online-school-1wkk.onrender.com";
-const imgbbApiKey = "0582ac2891ffebcd2e07d50f6e11524a"; 
 const courseApiUrl = `${baseUrl}/skill/courses/`;
 const skillsApiUrl = `${baseUrl}/skill/skills/`;
 
@@ -9,6 +6,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const paidInput = document.getElementById('paid-input');
     const priceSection = document.getElementById('price-section');
     const skillsInput = document.getElementById('skills-input');
+    let profileId = null;
 
     // Fetch skills from API and populate the select dropdown
     try {
@@ -33,25 +31,51 @@ document.addEventListener('DOMContentLoaded', async () => {
         priceSection.style.display = paidInput.value === 'true' ? 'block' : 'none';
     });
 
+    // Fetch profile data and store profileId
+    const authToken = localStorage.getItem('authToken');
+    if (authToken) {
+        try {
+            const response = await fetch(profileApiUrl, {
+                headers: {
+                    'Authorization': `Token ${authToken}`
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            profileId = data.id; 
+            console.log('the',data.id);
+
+        } catch (error) {
+            console.error('Error fetching profile data:', error);
+            document.getElementById('upload-message').innerText = 'Failed to load profile data.';
+        }
+    } else {
+        document.getElementById('upload-message').innerText = 'You need to be logged in to upload a course.';
+    }
+
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
-
+    
         const token = localStorage.getItem('authToken');
         if (!token) {
             document.getElementById('upload-message').innerText = 'You need to be logged in to upload a course.';
             return;
         }
-
+    
         const formData = new FormData(form);
         const file = formData.get('thumbnail');
-
+    
         // Upload image to imgbb
         const imgbbUrl = `https://api.imgbb.com/1/upload?key=${imgbbApiKey}`;
         const imgbbFormData = new FormData();
         imgbbFormData.append('image', file);
-
+    
         let imageUrl = '';
-
+    
         try {
             const imgbbResponse = await fetch(imgbbUrl, {
                 method: 'POST',
@@ -67,20 +91,27 @@ document.addEventListener('DOMContentLoaded', async () => {
             document.getElementById('upload-message').innerText = 'Image upload failed. Please try again.';
             return;
         }
+    
 
-        // Prepare data for API submission
-        const skills = Array.from(formData.getAll('skills'));
+
+
+    
         const courseData = {
             name: formData.get('name'),
             description: formData.get('description'),
-            taken_by: 1, // Replace with the actual teacher ID
+            taken_by: 1, // Replace with a valid ID
             thumbnail: imageUrl,
             paid: formData.get('paid') === 'true',
             price: formData.get('price') || null,
             time: formData.get('time'),
-            skills: skills // skills should be an array of skill IDs
+            skills: Array.from(formData.getAll('skills')).map(id => parseInt(id))
         };
-
+        
+        
+        
+    
+        console.log('Course Data:', JSON.stringify(courseData, null, 2)); // Log the data being sent
+    
         try {
             const response = await fetch(courseApiUrl, {
                 method: 'POST',
@@ -90,17 +121,22 @@ document.addEventListener('DOMContentLoaded', async () => {
                 },
                 body: JSON.stringify(courseData)
             });
-
+        
             if (!response.ok) {
                 const responseData = await response.json();
+                console.error('API response:', responseData); // Log the response data
                 throw new Error(responseData.detail || 'Failed to upload course.');
             }
-
+        
             document.getElementById('upload-message').innerText = 'Course uploaded successfully!';
             form.reset();
         } catch (error) {
             console.error('Course upload failed:', error);
             document.getElementById('upload-message').innerText = 'Course upload failed. Please try again.';
         }
+        
+        
     });
+    
+    
 });

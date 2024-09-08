@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </li>
             <li class="nav-item mx-2">
                 <a class="btn btn-primary" href="#" id="logout">Logout</a>
+                
             </li>
         `;
 

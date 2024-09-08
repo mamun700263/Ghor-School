@@ -1,5 +1,11 @@
 // const baseUrl = "http://127.0.0.1:8000";
-const baseUrl = "https://online-school-1wkk.onrender.com";
+// // const baseUrl = "https://online-school-1wkk.onrender.com";
+
+
+
+
+
+
 
 
 
@@ -103,15 +109,15 @@ const filterCoursesBySkill = (skillName) => {
 };
 
 // Function to display courses
-const displayCourses = (courses, skillName = "of all skills") => {
+const displayCourses = (courses, skillName = " ") => {
     const headerContainer = document.getElementById('courses-container-header');
     headerContainer.innerHTML = ''; // Clear previous content
 
     // Display a message showing the number of courses or if no courses are available
     if (courses.length === 0) {
-        headerContainer.innerHTML = `<p style="background-color: rgba(255, 0, 0, 0.2); padding: 10px; border-radius: 5px;">No courses available for <strong>${skillName}</strong>.</p>`;
+        headerContainer.innerHTML = `<p style="background-color: rgba(255, 0, 0, 0.2); padding: 10px; border-radius: 5px;">No courses available  of <strong> ${skillName}</strong>.</p>`;
     } else {
-        headerContainer.innerHTML = `<p style="background-color: rgba(0, 255, 0, 0.2); padding: 10px; border-radius: 5px;">${courses.length} courses available for <strong>${skillName}</strong>.</p>`;
+        headerContainer.innerHTML = `<p style="background-color: rgba(0, 255, 0, 0.2); padding: 10px; border-radius: 5px;">${courses.length} courses available  <strong> ${skillName}</strong>.</p>`;
     }
     // Get the container for course cards
     const coursesCardContainer = document.getElementById('courses-container-cards');
@@ -121,6 +127,7 @@ const displayCourses = (courses, skillName = "of all skills") => {
     courses.forEach(course => {
         const courseElement = document.createElement('div');
         courseElement.className = 'col'; // Bootstrap column class for grid layout
+        console.log('hello');
 
         const skills = course.skills.map(skill => skill.name).join(', ');
         const description = course.description.split(' ').slice(0, 10).join(' ') + '...';
@@ -134,7 +141,7 @@ const displayCourses = (courses, skillName = "of all skills") => {
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Skills: ${skills}</li>
-                    <li class="list-group-item">Taken By: ${course.taken_by.user.username}</li>
+                    <li class="list-group-item">Taken By: ${course.taken_by}</li>
                     <li class="list-group-item">Rating: ${course.rating}</li>
                 </ul>
                 <div class="card-body">
