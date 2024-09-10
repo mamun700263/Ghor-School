@@ -1,15 +1,3 @@
-// const baseUrl = "http://127.0.0.1:8000";
-// // const baseUrl = "https://online-school-1wkk.onrender.com";
-
-
-
-
-
-
-
-
-
-
 
 
 const studentApiUrl = `${baseUrl}/accounts/student_list/`;
@@ -61,6 +49,7 @@ const fetchSkills = () => {
             return response.json();  // Parse JSON from the response
         })
         .then(data => {
+            console.log('skills broo ',data);
             displaySkills(data);  // Call the function to display skills
         })
         .catch(error => {
@@ -78,6 +67,7 @@ const fetchCourses = () => {
             return response.json();  
         })
         .then(data => {
+            console.log('courses broo ',data);
             displayCourses(data);  // Call the function to display courses
         })
         .catch(error => {
@@ -110,6 +100,7 @@ const filterCoursesBySkill = (skillName) => {
 
 // Function to display courses
 const displayCourses = (courses, skillName = " ") => {
+    console.log(courses);
     const headerContainer = document.getElementById('courses-container-header');
     headerContainer.innerHTML = ''; // Clear previous content
 
@@ -127,9 +118,9 @@ const displayCourses = (courses, skillName = " ") => {
     courses.forEach(course => {
         const courseElement = document.createElement('div');
         courseElement.className = 'col'; // Bootstrap column class for grid layout
-        console.log('hello');
+        console.log(course);
 
-        const skills = course.skills.map(skill => skill.name).join(', ');
+        const skills = course.skills_list.map(skill => skill.name).join(', ');
         const description = course.description.split(' ').slice(0, 10).join(' ') + '...';
 
         courseElement.innerHTML = `
@@ -141,11 +132,11 @@ const displayCourses = (courses, skillName = " ") => {
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Skills: ${skills}</li>
-                    <li class="list-group-item">Taken By: ${course.taken_by}</li>
+                    <li class="list-group-item">Taken By:${course.taken_by_name} </li>
                     <li class="list-group-item">Rating: ${course.rating}</li>
                 </ul>
                 <div class="card-body">
-                    <a href="#" class="card-link">Course Details</a>
+                    <a href="course_detail.html?id=${course.id}" class="btn btn-primary mt-3">Details</a>
                 </div>
             </div>
         `;

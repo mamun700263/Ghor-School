@@ -62,4 +62,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
+const link = document.createElement('link');
+link.rel = 'shortcut icon';
+link.href = 'images/logo.webp';
+link.type = 'image/x-icon';
+document.head.appendChild(link);
+
 const teacher_id = Account_id;

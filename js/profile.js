@@ -37,7 +37,7 @@ function fetchProfileData() {
         return response.json();
     })
     .then(data => {
-        console.log(data);
+        console.log(data.courses);
         document.getElementById('profile-picture').src = data.profile_picture || 'images/User-Profile-PNG-Clipart.png';
         document.getElementById('profile-name').innerText = data.username || 'No name';
         document.getElementById('username').innerText = data.username || 'No username';
@@ -47,8 +47,40 @@ function fetchProfileData() {
         document.getElementById('date_of_birth').innerText = data.date_of_birth || 'No date of birth';
         document.getElementById('unique_id').innerText = data.unique_id || 'No unique ID';
 
+
+
         let role = data.unique_id.startsWith('ST') ? 'Student' : 'Teacher';
         document.getElementById('profile-role').innerText = role;
+
+        
+        const coursesCardContainer = document.getElementById('cards_profile');
+            coursesCardContainer.innerHTML = '';
+
+            data.courses.forEach(course => {
+                const courseElement = document.createElement('div');
+                courseElement.className = 'col';
+
+                const skills = course.skills_list.map(skill => skill.name).join(', ');
+                const description = course.description.split(' ').slice(0, 10).join(' ') + '...';
+
+                courseElement.innerHTML = `
+                        <div class="card h-100 mb-3 col-md-4 mx-auto w-50">
+                    <img src="${course.thumbnail}" class="card-img-top" alt="Course Thumbnail">
+                    <div class="card-body">
+                        <h5 class="card-title">${course.name}</h5>
+                        <p class="card-text">${description}</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Skills: ${skills}</li>
+                        <li class="list-group-item">Rating: ${course.rating}</li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="#" class="card-link">Update</a>
+                    </div>
+                </div>
+                `;
+                coursesCardContainer.appendChild(courseElement);
+            });
 
         if(role === 'Teacher') {
             document.getElementById("upload_course").innerHTML = '<a href="upload_course.html" class="dropdown-item">Upload Course</a>';
@@ -129,3 +161,9 @@ document.getElementById('logout').addEventListener('click', () => {
     localStorage.removeItem('authToken'); 
     window.location.href = 'login.html'; 
 });
+
+
+
+
+
+
