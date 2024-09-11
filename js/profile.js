@@ -62,7 +62,6 @@ function fetchProfileData() {
 
                 const skills = course.skills_list.map(skill => skill.name).join(', ');
                 const description = course.description.split(' ').slice(0, 10).join(' ') + '...';
-
                 courseElement.innerHTML = `
                         <div class="card h-100 mb-3 col-md-4 mx-auto w-50">
                     <img src="${course.thumbnail}" class="card-img-top" alt="Course Thumbnail">
@@ -75,7 +74,7 @@ function fetchProfileData() {
                         <li class="list-group-item">Rating: ${course.rating}</li>
                     </ul>
                     <div class="card-body">
-                        <a href="#" class="card-link">Update</a>
+                        <a href="update_course.html?id=${course.id}" class="card-link">Update</a>
                     </div>
                 </div>
                 `;

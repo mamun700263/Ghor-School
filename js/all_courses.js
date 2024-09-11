@@ -162,3 +162,10 @@ const fetchSkillsAndCourses = () => {
 
 // Call the function to fetch and display skills and courses
 fetchSkillsAndCourses();
+
+
+
+const search =()=>{
+    const value = document.getElementById('search').value;
+    console.log(value);
+}
