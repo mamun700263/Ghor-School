@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('upload-message').innerText = 'You need to be logged in to upload a course.';
     }
 
+
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
     
@@ -129,7 +130,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         
             document.getElementById('upload-message').innerText = 'Course uploaded successfully!';
+            //take to profile.html
             form.reset();
+            window.location.href = '/profile.html';
         } catch (error) {
             console.error('Course upload failed:', error);
             document.getElementById('upload-message').innerText = 'Course upload failed. Please try again.';

@@ -47,23 +47,39 @@ function fetchProfileData() {
         document.getElementById('date_of_birth').innerText = data.date_of_birth || 'No date of birth';
         document.getElementById('unique_id').innerText = data.unique_id || 'No unique ID';
 
-
-
+        // Determine user role
         let role = data.unique_id.startsWith('ST') ? 'Student' : 'Teacher';
         document.getElementById('profile-role').innerText = role;
 
-        
         const coursesCardContainer = document.getElementById('cards_profile');
-            coursesCardContainer.innerHTML = '';
+        coursesCardContainer.innerHTML = '';
 
-            data.courses.forEach(course => {
-                const courseElement = document.createElement('div');
-                courseElement.className = 'col';
+        data.courses.forEach(course => {
+            const courseElement = document.createElement('div');
+            courseElement.className = 'col';
 
-                const skills = course.skills_list.map(skill => skill.name).join(', ');
-                const description = course.description.split(' ').slice(0, 10).join(' ') + '...';
-                courseElement.innerHTML = `
-                        <div class="card h-100 mb-3 col-md-4 mx-auto w-50">
+            const skills = course.skills_list.map(skill => skill.name).join(', ');
+            const description = course.description.split(' ').slice(0, 10).join(' ') + '...';
+
+            let courseButtons = '';
+
+            // Add buttons based on the user's role
+            if (role === 'Teacher') {
+                courseButtons = `
+                    <div class="card-body">
+                        <a href="update_course.html?id=${course.id}" class="card-link">Update</a>
+                    </div>
+                `;
+            } else {
+                courseButtons = `
+                    <div class="card-body">
+                        <a href="#" class="card-link">Continue</a>
+                    </div>
+                `;
+            }
+
+            courseElement.innerHTML = `
+                <div class="card h-100 mb-3 col-md-4 mx-auto w-50">
                     <img src="${course.thumbnail}" class="card-img-top" alt="Course Thumbnail">
                     <div class="card-body">
                         <h5 class="card-title">${course.name}</h5>
@@ -71,17 +87,18 @@ function fetchProfileData() {
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Skills: ${skills}</li>
+                        <li class="list-group-item">Time: ${course.time}</li>
                         <li class="list-group-item">Rating: ${course.rating}</li>
                     </ul>
-                    <div class="card-body">
-                        <a href="update_course.html?id=${course.id}" class="card-link">Update</a>
-                    </div>
+                    ${courseButtons}
                 </div>
-                `;
-                coursesCardContainer.appendChild(courseElement);
-            });
+            `;
 
-        if(role === 'Teacher') {
+            coursesCardContainer.appendChild(courseElement);
+        });
+
+        // If the user is a teacher, display the "Upload Course" link
+        if (role === 'Teacher') {
             document.getElementById("upload_course").innerHTML = '<a href="upload_course.html" class="dropdown-item">Upload Course</a>';
         }
     })
@@ -90,8 +107,6 @@ function fetchProfileData() {
         document.getElementById('update-message').innerText = 'Failed to load profile data.';
     });
 }
-
-
 
 // Upload profile picture to imgbb and update backend
 function uploadProfilePicture(file) {
