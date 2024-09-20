@@ -6,20 +6,21 @@
 /* Profile Picture Container */
 #profile-picture-container {
     display: flex;
-    justify-content: center; /* Center the image horizontally */
+    justify-content: center;
     margin-bottom: 15px;
     position: relative;
-    width: 150px; /* Adjust as needed */
-    height: 150px; /* Adjust as needed */
+    width: 150px;
+    height: 150px;
 }
 
 /* Profile Picture Styling */
 #profile-picture {
     object-fit: cover;
     width: 100%;
-    height: 100%; /* Ensure the picture fills the container */
-    border-radius: 50%; /* Ensure the picture is circular */
+    height: 100%;
+    border-radius: 50%;
     cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for focus */
 }
 
 /* Edit Profile Picture Button */
@@ -29,16 +30,22 @@
     right: 5px;
     padding: 5px;
     border-radius: 50%;
-    background-color: #fff; /* Ensure it stands out */
-    border: 1px solid #ddd; /* Add a border for better visibility */
+    background-color: #fff;
+    border: 1px solid #ddd;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+}
+
+#edit-profile-picture:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.1); /* Slight zoom on hover */
 }
 
 #edit-profile-picture .fa-camera {
     font-size: 1.2rem;
-    color: #000; /* Dark color for the icon */
+    color: #000;
 }
 
 /* Dropdown Styling */
@@ -54,7 +61,7 @@
 /* Profile Name and Bio */
 #profile-name {
     font-size: 1.5rem;
-    margin-top: 10px; /* Add some space above */
+    margin-top: 10px;
 }
 
 #profile-bio {
@@ -71,7 +78,7 @@
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     #profile-picture-container {
-        width: 120px; /* Adjust for smaller screens */
+        width: 120px;
         height: 120px;
     }
 
@@ -82,11 +89,27 @@
 
     #edit-profile-picture {
         position: absolute;
-        bottom: 5px; /* Adjusted for smaller screens */
-        right: 5px; /* Adjusted for smaller screens */
+        bottom: 5px;
+        right: 5px;
         padding: 10px;
-        background: rgba(0, 0, 0, 0.5); /* Darker background for better contrast */
+        background: rgba(0, 0, 0, 0.5);
         border-radius: 50%;
-        color: #fff; /* White color for the icon */
+        color: #fff;
     }
+
+    /* Hover effect for mobile version */
+    #edit-profile-picture:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+        transform: scale(1.1);
+    }
+}
+
+
+ul, ol {
+    list-style-type: none; /* Removes dots or numbers */
+    padding-left: 0; /* Removes default indentation */
+}
+
+li {
+    padding: 5px 0; /* Optional: adds some spacing between list items */
 }

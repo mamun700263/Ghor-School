@@ -1,3 +1,18 @@
-body{
-    background-color: rgba(109, 186, 209, 0.51);
+
+body {
+    background-color: rgba(250, 250, 250, 0.51);
+}
+
+#registration-form-card {
+    background-color: rgb(254, 255, 255);
+}
+#registration-form-card {
+    max-width: 600px; /* Set max width for the form */
+    margin: auto; /* Center the card */
+}
+
+#registration-main img {
+    max-width: 100%; /* Ensures responsiveness */
+    height: auto; /* Maintains aspect ratio */
+    max-height: 450px; /* Adjust this value to increase/decrease image height */
 }

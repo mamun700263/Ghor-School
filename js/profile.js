@@ -93,13 +93,11 @@ function fetchProfileData() {
                     ${courseButtons}
                 </div>
             `;
-
             coursesCardContainer.appendChild(courseElement);
         });
-
         // If the user is a teacher, display the "Upload Course" link
         if (role === 'Teacher') {
-            document.getElementById("upload_course").innerHTML = '<a href="upload_course.html" class="dropdown-item">Upload Course</a>';
+            document.getElementById("actions").innerHTML = '<li  ><a href="upload_course.html" >Upload Course</a></li>';
         }
     })
     .catch(error => {

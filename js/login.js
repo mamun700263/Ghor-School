@@ -1,10 +1,3 @@
-// 
-
-
-
-
-
-
 
 const loginApiUrl = `${baseUrl}/accounts/login/`;
 
@@ -60,7 +53,7 @@ function submitLoginForm(event) {
     .catch(error => {
         console.error('Error:', error);
         if (errorMessageElement) {
-            errorMessageElement.innerText = 'An error occurred during login';
+            errorMessageElement.innerText = 'Invalid username or password';
         }
     });
 }

@@ -102,7 +102,7 @@ fetch(courseApiUrl)
         .catch(error => {
             console.error('Error enrolling in course:', error);
             const messageElement = document.getElementById('enroll-message');
-            messageElement.innerText = 'An error occurred. Please try again.';
+            messageElement.innerText = 'You are already enrolled in the course';
             messageElement.style.color = 'red';
         });
     }
