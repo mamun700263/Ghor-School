@@ -52,7 +52,7 @@ function fetchProfileData() {
         document.getElementById('profile-role').innerText = role;
 
         const coursesCardContainer = document.getElementById('cards_profile');
-        coursesCardContainer.innerHTML = '';
+        // coursesCardContainer.innerHTML = '';
 
         data.courses.forEach(course => {
             const courseElement = document.createElement('div');
@@ -67,37 +67,49 @@ function fetchProfileData() {
             if (role === 'Teacher') {
                 courseButtons = `
                     <div class="card-body">
-                        <a href="update_course.html?id=${course.id}" class="card-link">Update</a>
+                        <a href="update_course.html?id=${course.id}" class="card-link btn btn-outline-primary ">Update</a>
                     </div>
                 `;
             } else {
                 courseButtons = `
                     <div class="card-body">
-                        <a href="#" class="card-link">Continue</a>
+                        <a href="#"  class="card-link btn btn-outline-primary ">Continue</a>
                     </div>
                 `;
             }
 
             courseElement.innerHTML = `
-                <div class="card h-100 mb-3 col-md-4 mx-auto w-50">
-                    <img src="${course.thumbnail}" class="card-img-top" alt="Course Thumbnail">
-                    <div class="card-body">
-                        <h5 class="card-title">${course.name}</h5>
-                        <p class="card-text">${description}</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Skills: ${skills}</li>
-                        <li class="list-group-item">Time: ${course.time}</li>
-                        <li class="list-group-item">Rating: ${course.rating}</li>
-                    </ul>
-                    ${courseButtons}
-                </div>
-            `;
-            coursesCardContainer.appendChild(courseElement);
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Thumbnail</th>
+                        <th scope="col">Course Name</th>
+                        <th scope="col">Skills</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Rating</th>
+                        <th scope="col">Update</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="${course.thumbnail}" alt="Course Thumbnail" style="width: 100px; height: auto;"></td>
+                        <td>${course.name}</td>
+                        <td>${skills}</td>
+                        <td>${course.time}</td>
+                        <td>${course.rating}⭐</td>
+                        <td>${courseButtons}</td>
+                    </tr>
+                </tbody>
+            </table>
+        `;
+        
+        coursesCardContainer.appendChild(courseElement);
+        
+
         });
         // If the user is a teacher, display the "Upload Course" link
         if (role === 'Teacher') {
-            document.getElementById("actions").innerHTML = '<li  ><a href="upload_course.html" >Upload Course</a></li>';
+            document.getElementById("actions").innerHTML = '<li  ><a href="upload_course.html" class="dropdown-item btn btn-light "  style="background-color: #f0f0f0; border: 1px solid #ccc; color: #333;" >Upload Course</a></li>';
         }
     })
     .catch(error => {
@@ -160,7 +172,9 @@ function updateProfilePictureInBackend(imageUrl) {
         return response.json();
     })
     .then(data => {
-        document.getElementById('update-message').innerText = 'Profile picture updated successfully!';
+        const updateMessage = document.getElementById('update-message');
+        updateMessage.innerText = 'Profile picture updated successfully!';
+        updateMessage.style.color = 'green'; // Apply green color for success
     })
     .catch(error => {
         console.error('Error:', error);

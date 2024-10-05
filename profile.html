@@ -13,11 +13,8 @@
 
 <body>
     <header>
-        <link rel="stylesheet" href="style/nav.css">
-        <nav class="navbar navbar-expand-lg  text-light" style="padding-left: 20px; padding-right: 20px; background-color: rgb(12, 63, 95); color: #f8f8f8;">
-            <a class="navbar-brand" href="/">
-                <img src="images/logo.webp" alt="Logo" class="navbar-logo" style="width: 50px;">
-            </a>
+        <nav class="navbar navbar-expand-lg  text-light" style="padding-left: 20px; padding-right: 20px; background-color: #004080; color: #f8f8f8;">
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -29,12 +26,15 @@
                     <li class="nav-item"><a class="nav-link text-white" href="success_stories.html">Success Stories</a></li>
                 </ul>
                 <div class="d-flex align-items-center mx-3">
+                    
                 </div>
                 <ul class="navbar-nav ms-auto" id="profile_login"></ul>
             </div>
         </nav>
-    </header>
     
+
+    </header>
+
     <main role="main" class="container mt-5">
         <div class="row">
             <!-- Left Side: Profile and User Information -->
@@ -44,7 +44,8 @@
                     <div class="card-body text-center">
                         <div class="d-flex justify-content-center align-items-center">
                             <div id="profile-picture-container" class="position-relative">
-                                <img id="profile-picture" src="images/User-Profile-PNG-Clipart.png" alt="Profile Picture" class="img-fluid rounded-circle">
+                                <img id="profile-picture" src="images/User-Profile-PNG-Clipart.png"
+                                    alt="Profile Picture" class="img-fluid rounded-circle">
                                 <button id="edit-profile-picture" class="btn">
                                     <i class="fas fa-camera"></i>
                                     <input type="file" id="profile-upload" accept="image/*" style="display: none;">
@@ -60,7 +61,7 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <h3 class="card-title">About</h3>
-                            <button id="edit-account-info"  >
+                            <button id="edit-account-info">
                                 <a href="update_user_data.html"><i class="fas fa-edit"></i></a>
                             </button>
                         </div>
@@ -76,28 +77,44 @@
                 <!-- Dropdown Section -->
                 <div class="card mb-4">
                     <div class="card-body text-center">
-                        <ul id="actions">
-                            <li><a class="dropdown-item" href="update_user_data.html">Update Account Info</a></li>
-                        
-                            <li><a class="dropdown-item"  id="logout" style="background-color: #ff7b07;">Log Out</a></li>
-                            
+                        <ul id="actions" class="list-unstyled">
+                            <!-- Additional dynamic actions can be added here -->
+                        </ul>
+
+                        <ul class="list-unstyled">
+                            <li>
+                                <a class="dropdown-item btn btn-light mb-2" href="update_user_data.html"
+                                    style="background-color: #f0f0f0; border: 1px solid #ccc; color: #333;">
+                                    Update Account Info
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item btn btn-light" id="logout"
+                                    style="background-color: #f0f0f0; border: 1px solid #ccc; color: #333;">
+                                    Log Out
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
+
+
             </div>
 
             <!-- Right Side: Course Upload Section -->
             <div class="col-md-8">
                 <div class="card mb-4">
-                    <div class="card-header text-center">My Course</div>
+                    <div class="card-header text-center" id="courses-header">My Course</div>
 
-                        <div id="cards_profile" class=" ">
-                            <!-- Course Cards will be dynamically inserted here -->
-                        </div>
+                    <div id="cards_profile" class="">
+                        <!-- Course Cards will be dynamically inserted here -->
+
+
+                    </div>
 
                 </div>
             </div>
-            
+
         </div>
     </main>
 
@@ -105,7 +122,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous"
+        defer></script>
     <script src="js/basic.js"></script>
     <script src="js/profile.js"></script>
 </body>

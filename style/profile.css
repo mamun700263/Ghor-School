@@ -113,3 +113,15 @@ ul, ol {
 li {
     padding: 5px 0; /* Optional: adds some spacing between list items */
 }
+
+.btn-outline-primary{
+    background-color: #004080;
+}
+.btn-outline-primary {
+    color: white;
+}
+
+#courses-header{
+    background-color: #004080;
+    color: white;
+}

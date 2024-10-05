@@ -9,16 +9,13 @@
     <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet"
         crossorigin="anonymous">
     <link href="style/index.css" rel="stylesheet">
+    <link href="style/all_courses.css" rel="stylesheet">
 </head>
 
-<body>
+<body style="background-color:  #c0e1ffa9;">
     <header>
-        <link rel="stylesheet" href="style/nav.css">
-        <link rel="stylesheet" href="style/nav.css">
-        <nav class="navbar navbar-expand-lg  text-light" style="padding-left: 20px; padding-right: 20px; background-color: rgb(12, 63, 95); color: #f8f8f8;">
-            <a class="navbar-brand" href="/">
-                <img src="images/logo.webp" alt="Logo" class="navbar-logo" style="width: 50px;">
-            </a>
+        <nav class="navbar navbar-expand-lg  text-light" style="padding-left: 20px; padding-right: 20px; background-color: #004080; color: #f8f8f8;">
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -30,14 +27,13 @@
                     <li class="nav-item"><a class="nav-link text-white" href="success_stories.html">Success Stories</a></li>
                 </ul>
                 <div class="d-flex align-items-center mx-3">
-                    <form class="form-inline my-2 my-lg-0 d-flex align-items-center" id="navbar_form">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search">
-                        <button class="btn btn-success" type="submit" onclick="search()" >Search</button>
-                    </form>
+                    
                 </div>
-                <ul class="navbar-nav ms-auto" id="profile_login"></ul>
+                <ul class="navbar-nav ms-auto" id="profile_login" ></ul>
             </div>
         </nav>
+    
+
     </header>
 
 
@@ -52,10 +48,10 @@
 
 
 
-    <main role="main" class="container mt-5">
+    <main role="main" class="container mt-5" >
         <!-- Skills Section -->
         <section>
-            <h2 class="">Filter Courses by Skills</h2>
+            <h6 class="text-center">Filter Courses by Skills</h6>
             <div id="skills-container" class="d-flex flex-wrap ">
                 <!-- Skill buttons will be dynamically inserted here -->
             </div>
@@ -63,7 +59,7 @@
     
         <!-- Courses Section -->
         <section>
-            <div id="courses-container-header" class="text-center mb-4">
+            <div id="courses-container-header" class="text-center mb-4" >
                 <!-- Filtered courses message will be dynamically inserted here -->
             </div>
             <div id="courses-container-cards" class="row row-cols-1 row-cols-md-3 g-4">

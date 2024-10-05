@@ -100,8 +100,11 @@ function updateCourse(courseId, updatedCourseData) {
     })
     .catch(error => {
         alert('Failed to update course.');
-        console.error('Error:', error);
-    });
+        // console.error('Error:', error);
+        // console.log('Error:', error);
+        console.log(error);
+    })
+    ;
 }
 
 // Function to delete course

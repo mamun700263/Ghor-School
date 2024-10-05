@@ -1,11 +1,29 @@
-/* Theme colors */
-/* Primary theme color: rgb(12, 63, 95) */
-/* Secondary theme color: rgb(101, 102, 102) */
+/* Some important colors or styles */
+/* #FFE8E6 */
+/* #84c6ffa9; */
+/* #004080; */
+/* Some important colors or styles */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* Global Styles */
 /* Start: Global styles */
 body {
+    background-color: #ffffff;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
@@ -13,74 +31,89 @@ body {
 /* End: Global styles */
 
 
-/* Header Styles */
-/* Start: Header styles */
-/* Header-specific styling goes here */
-/* End: Header styles */
 
-
-/* Navbar Styles */
-/* Start: Navbar styles */
-/* Navbar-specific styling goes here */
-/* End: Navbar styles */
 
 
 /* Banner Styles */
-/* Start: Banner styles */
+
 #banner {
-    display: flex; /* Use flexbox to align items side by side */
-    align-items: center; /* Vertically center the content */
-    justify-content: space-between; /* Space out the text and image */
-    width: 100%;
-    background: linear-gradient(rgb(12, 63, 95), rgba(61, 102, 102, 0.623));
-    box-sizing: border-box; /* Include padding in width */
-    margin-top: 70px;
-    margin-bottom: 70px;
-}
-
-#banner-text {
-    text-align: center;
-    flex: 1; /* Allow text to take up available space */
-    max-width: 45%; /* Ensure text doesn't exceed 45% of the banner width */
-    color: rgb(255, 255, 255); /* Ensure text is readable */
-}
-
-#banner-text h1 {
-    font-size: 2.5rem; /* Reduced font size */
-    margin-bottom: 10px;
-}
-
-#banner-text p {
-    font-size: 1rem; /* Reduced font size */
-    margin-bottom: 15px; /* Reduced margin */
-    line-height: 1.4; /* Adjust line height */
-}
-
-#banner-text .btn {
-    background-color: rgb(12, 63, 95); /* Matching button color */
-    color: white;
-    padding: 8px 16px; /* Reduced button padding */
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 0.9rem; /* Reduced font size */
-}
-
-#banner-text .btn:hover {
-    background-color: rgb(10, 50, 80); /* Darker shade on hover */
-}
-
-#banner-img {
-    flex: 1; /* Allow image container to take up available space */
-    max-width: 45%; /* Ensure image container doesn't exceed 45% of the banner width */
-    display: flex; /* Center image horizontally */
-    justify-content: center; /* Center image horizontally */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    background-color: #FFE8E6; 
 }
 
 #banner-img img {
-    max-width: 80%; /* Reduce image size */
-    height: auto; /* Maintain aspect ratio */
+    width: 100%;
+    max-width: 600px;
+    margin-right: 0;
+    object-fit: cover;
+}
+
+#banner-text {
+    flex: 1;
+    padding-left: 50px;
+}
+
+#banner-text h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #004080;
+    margin-bottom: 20px;
+}
+
+#banner-text p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+#banner-text .btn {
+    padding: 12px 25px;
+    background-color: #004080;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+#banner-text .btn:hover {
+    background-color: #0066cc;
+}
+
+#learn_online ul {
+    padding-left: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#learn_online li {
+    list-style: none;
+    text-align: center;
+    margin-right: 30px;
+}
+
+li i {
+    font-size: 60px;
+    color: #004080;
+}
+
+li p {
+    font-size: 1rem;
+    margin-top: 15px;
+    color: #333;
+    font-weight: bold;
 }
 /* End: Banner styles */
+
+
+
 
 
 /* Success Story Styles */
@@ -88,7 +121,7 @@ body {
 .banner-success-story {
     align-items: center;
     justify-content: space-between;
-    background-color: rgba(76, 126, 129, 0.175); 
+    background-color:  #84c6ffa9; 
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -151,6 +184,35 @@ body {
 }
 /* End: Success story styles */
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* main{
     background-color: rgba(59, 119, 119, 0.521);
 } */
@@ -161,67 +223,92 @@ body {
 }
 /* End: Carousel container styles */
 
-
 /* Why Us Section Styles */
-/* Start: Why us section styles */
 #why_us {
-    background-color: rgb(240, 240, 240); /* Light background */
-    padding: 30px 15px;
+    
+    /* background-color: #d6efff; */
+    background-color: #84c6ffa9; 
+    color: #0c3f5f;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
-#top h2 {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 15px;
-    color: rgb(51, 79, 97); /* Heading color to match banner */
-}
-
-#top p {
-    font-size: 1rem;
-    color: rgb(102, 102, 102); /* Slightly darker grey text */
-}
-
-#what_we_offer {
-    margin-top: 20px;
-}
-
+/* Text Content Styles */
 #what_we_offer_text {
-    padding-right: 20px;
+    color: #0c3f5f;
+    padding: 30px;
+    border-radius: 10px;
+    margin-left: 0px;
+    width: 45%;
+    align-items: center;
+    padding-top: 6%;
 }
 
+/* Heading Styles */
+#what_we_offer_text h2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #004080;
+    margin-bottom: 20px;
+}
+
+/* Subtext (h6) Styles */
 #what_we_offer_text h6 {
-    font-size: 1.2rem;
-    color: rgb(12, 63, 95); /* Heading color to match banner */
+    font-size: 18px;
+    color: #0c3f5f;
+    line-height: 1.7;
+    margin-bottom: 20px;
 }
 
+/* Button Styles */
 #what_we_offer_text button {
-    font-size: 1rem;
-    background-color: rgb(12, 63, 95); /* Button color */
+    font-size: 1.1rem;
+    background-color: #004080;
     color: white;
     border-radius: 5px;
-    padding: 8px 16px;
+    padding: 12px 25px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 #what_we_offer_text button:hover {
-    background-color: rgb(10, 50, 80); /* Darker shade on hover */
+    background-color: #002f5c;
+    transform: translateY(-2px);
 }
 
-#what_we_offer_img img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* Icon List Styles */
+#what_we_offer_text ul li {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #004080;
 }
-/* End: Why us section styles */
+
+/* Image Section Styles */
+#what_we_offer_text_img{
+    width: 55%;
+    object-fit: cover;
+}
+#what_we_offer_text_img img {
+    width: 100%;
+    margin-right: 0;
+    object-fit: cover;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #what_we_offer_text {
+        margin-bottom: 30px;
+    }
+    #what_we_offer_text_img img {
+        width: 100%;
+    }
+}
+
 /* Ensure the body takes full height and uses Flexbox */
-body {
-    background-color: rgb(240, 240, 240);
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Full height of the viewport */
-}
+
 
 /* Main content takes available space */
 main {
@@ -254,3 +341,270 @@ main {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+
+
+
+
+#explore_more{
+    background-color: #ffffff;
+    padding: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*teacher section*/
+
+#teachers{
+    padding: 80px;
+    background-color: #FFE8E6; /* Adding a subtle background color */
+    height: 800px;
+}
+#teachers .teachers_header h1{
+    font-family: Arial, sans-serif;
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #004080;
+}
+
+#teachers .teachers_header h4{
+    color: #6b757f;
+    font-size: 10px;
+    font-weight: 100;
+}
+
+/*teacher section*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Section Styling */
+.courses {
+    background-color: #f9f9f9;
+    padding: 3rem;
+    border-radius: 10px;
+}
+
+/* Header Styling */
+#carousel-header h1 {
+    font-family: Arial, sans-serif;
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #004080;
+}
+
+/* Card Styling */
+.card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    object-fit: cover;
+    border-bottom: 2px solid #ddd;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+}
+
+.card-title {
+    font-size: 18px;
+    margin-bottom: 0.5rem;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+
+
+/* Skill Section Styles */
+#skill-card {
+    background-image: url(../images/python-logo-only.png);
+    width: 200px;
+    height: 150px;
+    color: white;
+    text-align: center;
+    background-size: cover;       
+    background-position: center;   
+    background-repeat: no-repeat; 
+}
+
+
+
+/* Skill Section Styles */
+
+/* trending courses */
+#Trending-courses{
+    background-color: #84c6ffa9; 
+    border-radius: 10px;
+}
+.section-header h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #004080;
+}
+#ul_courses{
+    background-color: #00305c00;
+    color: #fff8f8;
+    /* pas */
+}
+#ul_courses small.d-flex {
+    padding: 0.2rem 0.5rem;
+    border-radius: 5px;
+}
+
+#course_section{
+background-color: #f0f8ff;;
+}
+
+
+.card-link:hover .card {
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Creates a subtle shadow effect */
+    transform: scale(1.02); /* Slight zoom on hover */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth animation */
+}
+
+.card-link:hover img {
+    opacity: 0.9; /* Dim the image a bit for a hover effect */
+    transition: opacity 0.3s ease-in-out;
+}
+
+.course-card-description{
+    font-size: 10px;
+    font-weight: 100;
+}
+
+
+#top-courses-section {
+    padding: 2rem;
+    background-color: #107ddd;
+    border-radius: 10px;
+}
+
+#ul-courses-container {
+    gap: 5px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#carousel-header h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #004080;
+}
+
+#carousel-header p {
+    color: #6c757d;
+    font-size: 1.2rem;
+}
+/* trending courses */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* reviews */
+#reviews{
+    align-items: center;
+    background-color:  #FFE8E6;
+    height: 500px;
+}
+.reviews-header{
+    border: #002f5c;
+    padding: 30px;
+}
+#reviews .reviews-header h1{
+    font-family: Arial, sans-serif;
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #004080;
+    text-align: center;
+}
+
+#reviews-img-profile {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+#reviews .card-header {
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
+#reviews .reviewer-info {
+    margin-left: 10px;
+}
+
+#reviews .rating {
+    font-size: 1.2em;
+}
+
+#reviews .card{
+    box-shadow: 3px 6px 20px rgba(0, 0, 0, 0.2); 
+    border-radius: 10px; 
+    transition: box-shadow 0.3s ease; 
+    margin: 10px;
+    gap: 10px;  
+    justify-content: center;
+}
+
+
+#reviews  .card:hover {
+    box-shadow: 5px 10px 30px rgba(0, 0, 0, 0.3); 
+}
+
+
+
+/* reviews */
+
+/* global */
+
+section{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+/* global */

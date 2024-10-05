@@ -5,26 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ghor School - Learn with Us</title>
-    
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Swiffy Slider CSS -->
     <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet"
         crossorigin="anonymous">
+        
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+        
     <!-- Custom CSS -->
     <link href="style/index.css" rel="stylesheet">
 </head>
 
-<body class="mx-5">
-    
+<body>
+
     <header>
-        <!-- <div id="navbar" class="ms-0"> Navbar </div> -->
-        <link rel="stylesheet" href="style/nav.css">
-        <link rel="stylesheet" href="style/nav.css">
-        <nav class="navbar navbar-expand-lg  text-light" style="padding-left: 20px; padding-right: 20px; background-color: rgb(12, 63, 95); color: #f8f8f8;">
-            <a class="navbar-brand" href="/">
-                <img src="images/logo.webp" alt="Logo" class="navbar-logo" style="width: 50px;">
-            </a>
+
+        <nav class="navbar navbar-expand-lg  text-light" style="padding-left: 20px; padding-right: 20px; background-color: #004080; color: #f8f8f8;">
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -36,159 +36,168 @@
                     <li class="nav-item"><a class="nav-link text-white" href="success_stories.html">Success Stories</a></li>
                 </ul>
                 <div class="d-flex align-items-center mx-3">
+                    
                 </div>
                 <ul class="navbar-nav ms-auto" id="profile_login"></ul>
             </div>
         </nav>
-    
-        </div>
+
+
 
         
-        <div id="banner">
-            <div id="banner-text">
-                <h1>We Are the Best</h1>
-                <p>Providing top-notch education and resources to help you achieve your goals. Join us and experience
-                    the difference in learning and growth.</p>
-                <a href="about.html" class="btn">Learn More</a>
+
+<!-- Why Us Section -->
+<section class="ratings mt-5 " id="why_us">
+    <div class="d-flex flex-wrap">
+            <!-- Text section -->
+            <div class="text-center" id="what_we_offer_text">
+                <h2 class="mb-4">Learn Online</h2>
+                <h6 class="mb-4">
+                    Over 500 expertly crafted courses across various fields to help you advance your skills and achieve your goals.
+                </h6>
+                <a href="courses.html">
+                    <button class="btn btn-primary">Explore Our Courses</button>
+                </a>
+                <ul class="d-flex justify-content-center mt-5 list-unstyled" id="learn_online">
+                    <li class="">
+                        <i class="fa-solid fa-graduation-cap fa-2xl" style="color: #004080; font-size: 50px;"></i>
+                        <p class="mt-2">Skills</p>
+                    </li>
+                    <li class="">
+                        <i class="fa-solid fa-video fa-2xl" style="color: #004080; font-size: 50px;"></i>
+                        <p class="mt-2">Video Classes</p>
+                    </li>
+                    <li class="">
+                        <i class="fa-solid fa-star fa-2xl" style="color: #004080; font-size: 50px;"></i>
+                        <p class="mt-2">Best Quality</p>
+                    </li>
+                </ul>
             </div>
-            <div id="banner-img">
-                <img src="images/logo.webp" alt="Logo">
+            <!-- Image section -->
+            <div  id="what_we_offer_text_img" class="bg-dark">
+                <img src="images/pexels-tima-miroshnichenko-5303549.jpg" alt="Learning" class="img-fluid rounded shadow w-100">
             </div>
-        </div>
-                <!-- Success Story Banner -->
-                <div class="banner-success-story ">
-                    <div class="story-head mb-4 w-100 p-3 text-white" style="background-color: rgba(41, 132, 189, 0.496);">
-                        <h2 class="text-center">Today's Success Story</h2>
-                    </div>
-                    <div class="d-flex flex-row align-items-center mt-4">
-                        <div class="banner-left ">
-                            <h2>Jane's Journey to Google</h2>
-                            <p>Meet Jane, one of our star students who transformed her career with our Python course. Starting
-                                with no coding experience, Jane now works as a software developer at a leading tech company.</p>
-                            <a href="success_stories.html" class="btn btn-primary">Read More</a>
-                        </div>
-                        <div class="banner-right">
-                            <img src="images/google.jpeg" alt="Success Story Image" class="img-fluid rounded">
-                        </div>
-                    </div>
-                </div>
-        
+    </div>
+</section>
+
     </header>
 
-    <!-- Main Content -->
     <main role="main" class="mt-5">
 
 
+        <section>
+        <div id="banner" class="mb-5">
+            <div id="banner-img" class="d-flex">
+                <img src="images/hero-banner.png" alt="Educational Banner">
+            </div>
+            <div id="banner-text" class="text-center">
+                <h1>Why Choose Us?</h1>
+                <p>Unlock your full potential with our top-tier educational resources and personalized support. Join a community of learners driven by excellence and growth. Your success is our priority!</p>
+                <a href="about.html" class="btn">Learn More</a>
+                <div>
+                    <ul class="d-flex justify-content-center mt-5 list-unstyled">
+                        <li class="mx-4"><i class="fa-solid fa-phone-volume fa-2xl"></i><p>24/7 Support</p></li>
+                        <li class="mx-4"><i class="fa-solid fa-chalkboard-teacher fa-2xl"></i><p>Expert Instructors</p></li>
+                        <li class="mx-4"><i class="fa-solid fa-medal fa-2xl"></i><p>Top Quality</p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </section>
+
+        <!-- Success Story Banner -->
+         <section id="success_stories">
+        <div class="banner-success-story p-4 my-5 " ">
+            <div class="story-head mb-4 w-100 text-white text-center p-3" >
+                <h1 style="color: #004080;font-size: 3rem;color: #004080;margin-bottom: 20px;font-weight: bold;">Today's Success Story</h1>
+            </div>
+            <div class="row align-items-center mt-4">
+                <div class="col-md-6">
+                    <h3 class="mb-3" style="color: #004080;margin-bottom: 20px;font-weight: bold;">Jane's Journey to Google</h3>
+                    <p class="mb-4">Meet Jane, one of our star students who transformed her career with our Python course. Starting with no coding experience, Jane now works as a software developer at a leading tech company.</p>
+                    <a href="success_stories.html" class="btn px-4 py-2" style="background-color: #004080; color: white;">Read More</a>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="images/google.jpeg" alt="Success Story Image" class="img-fluid rounded shadow-sm" style="max-width: 75%; height: auto;">
+                </div>
+            </div>
+        </div>
+    </section>
 
 
 
-
-        <!-- Trending Courses Carousel -->
-<!-- Trending Courses Section -->
-<section class="courses my-5">
-    <div id="carousel-header" class="text-center mb-4">
-        <h2>Top Courses</h2>
-    </div>
-<div>
-    <div class="swiffy-slider slider-item-show2 slider-item-reveal slider-nav-outside slider-nav-round slider-nav-visible slider-indicators-outside slider-indicators-round slider-indicators-dark slider-nav-animation  slider-item-last-visible">
-        <ul class="slider-container py-4" id="ul">
-
-
-        </ul>
+        <!-- reviews -->
+        <section id="reviews" >
+            <div class="reviews-header text-center">
+                <h1>What Our students Say</h1>
+            </div>
+                <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner mt-5 " id="reviews-cards">
+                        <!-- Dynamic content will be injected here -->
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </section>
+            
     
-        <button type="button" class="slider-nav" aria-label="Go left"></button>
-        <button type="button" class="slider-nav slider-nav-next" aria-label="Go left"></button>
-    
-        <div class="slider-indicators">
-            <button class="" aria-label="Go to slide"></button>
-            <button aria-label="Go to slide"></button>
-            <button aria-label="Go to slide"></button>
-            <button aria-label="Go to slide"></button>
-            <button aria-label="Go to slide" class="active"></button>
-        </div>
-    </div>
-</div>
-</section>
 
-<!-- Why Us Section -->
-<section class="ratings" id="why_us">
-    <div class="text-center my-4">
-        <h2>Why Choose Our School?</h2>
-        <p>At our school, we are dedicated to providing top-notch education tailored to your needs. Our courses are designed to equip you with the skills necessary to excel in your career.</p>
-    </div>
-    <div class="d-flex flex-wrap align-items-center">
-        <div id="what_we_offer_text" class="col-md-6 mb-4">
-            <h6>Over 500 expertly crafted courses across various fields to help you advance your skills and achieve your goals.</h6>
-            <a href="courses.html"><button class="btn btn-primary mt-3">Explore Our Courses</button></a>
-        </div>
-        <div id="what_we_offer_img" class="col-md-6 text-center">
-            <img src="/images/static explorere.png" alt="Explore courses" class="img-fluid rounded">
-        </div>
-    </div>
-</section>
 
-<!-- Explore More Section -->
-<section id="explore_more" class="my-5">
-    <div class="text-center mb-4">
-        <h2>What Sets Us Apart?</h2>
-        <p>Discover the unique features that make our school a leader in online education. From flexible learning options to personalized support, we are here to help you succeed.</p>
-    </div>
-    <div class="d-flex flex-wrap justify-content-center">
-        <!-- Card 1 -->
-        <div class="card m-3" style="width: 18rem;">
-            <img src="images/platform.png" class="card-img-top" alt="Platform">
-            <div class="card-body">
-                <h5 class="card-title">Learn Anytime, Anywhere</h5>
-                <p class="card-text">Access your courses from any device, at any time. Our platform is designed to fit into your busy schedule.</p>
-                <a href="#" class="btn btn-primary">Start Learning</a>
+        <!-- Skills Section -->
+        <!-- <section class="my-5" id="skill_section">
+            <div class="section-title">
+                <h1 class="mt-2 text-center mt-5 p-3">Skills We Have</h1>
             </div>
-        </div>
-        <!-- Card 2 -->
-        <div class="card m-3" style="width: 18rem;">
-            <img src="images/teachers.png" class="card-img-top" alt="Teachers">
-            <div class="card-body">
-                <h5 class="card-title">Expert Instructors</h5>
-                <p class="card-text">Learn from industry professionals who bring real-world experience and insights into the classroom.</p>
-                <a href="#" class="btn btn-primary">Meet Our Experts</a>
+            <div>
+                <div class="swiffy-slider slider-item-show4 slider-nav-outside slider-nav-dark slider-nav-sm slider-nav-visible slider-nav-page slider-item-snapstart slider-nav-autoplay slider-nav-autopause slider-item-ratio slider-item-ratio-contain slider-item-ratio-32x9 shadow-lg py-3 py-lg-4"
+                data-slider-nav-autoplay-interval="3500">
+                <div class="slider-container" id="skills">
+                 
+                </div>
             </div>
-        </div>
-        <!-- Card 3 -->
-        <div class="card m-3" style="width: 18rem;">
-            <img src="images/categorys.png" class="card-img-top" alt="Categories">
-            <div class="card-body">
-                <h5 class="card-title">Wide Range of Courses</h5>
-                <p class="card-text">Choose from a diverse selection of courses designed to meet your specific interests and career goals.</p>
-                <a href="#" class="btn btn-primary">Browse Our Categories</a>
             </div>
-        </div>
-    </div>
-</section>
+        </section> -->
+        
+        <!-- Trending Courses Section -->
+        <section class="courses py-5  my-5 section-title"  id="Trending-courses">
+            <div class="section-header text-center " >
+                <h1 class="display-4 font-weight-bold">Our Top Courses</h1>
+                <p class="text-muted">Explore the most popular courses curated just for you</p>
+            </div>
+                <div class="d-flex justify-content-center flex-wrap " id="ul_courses" style="gap: 5px;"><div class="card m-3 shadow-sm" style="width: 22rem; border-radius: 10px;">
+                    
+                    
+            </div>
+            </div>
+        </section>
 
+
+
+
+
+        
+        <section id="teachers" >
+            <div class="teachers_header text-center section-header">
+                <h1 >Our Teachers</h1>
+            </div>
+            <div>
+                <div class="swiffy-slider slider-item-show3 slider-item-reveal slider-nav-dark slider-nav-outside-expand">
+                    <ul class="slider-container py-4" id="slider2">
+                        <!-- Teacher cards will be appended here -->
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+        
     </main>
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -206,7 +215,7 @@
     <!-- Custom JS -->
     <script src="js/basic.js"></script>
     <script src="js/index.js"></script>
-    
+
 </body>
 
 </html>
