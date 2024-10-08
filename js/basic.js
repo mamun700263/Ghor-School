@@ -5,7 +5,7 @@ const profile_pic = "images/User-Profile-PNG-Clipart.png";
 const imgbbApiKey = "0582ac2891ffebcd2e07d50f6e11524a"; 
 const profileApiUrl = `${baseUrl}/accounts/profile/`;
 let Account_id = 0;
-
+const default_img = "images/User-Profile-PNG-Clipart.png";
 // footer section starts
 document.addEventListener('DOMContentLoaded', function() {
     fetch('footer.html')

@@ -62,7 +62,7 @@
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <h3 class="card-title">About</h3>
                             <button id="edit-account-info">
-                                <a href="update_user_data.html"><i class="fas fa-edit"></i></a>
+                                <a href="update_user_data.html"><i class="fas fa-edit" style="color: #004080;"></i></a>
                             </button>
                         </div>
                         <p><strong>Username:</strong> <span id="username">No username</span></p>
@@ -75,28 +75,23 @@
                 </div>
 
                 <!-- Dropdown Section -->
-                <div class="card mb-4">
+                <div class="card shadow-sm">
                     <div class="card-body text-center">
                         <ul id="actions" class="list-unstyled">
-                            <!-- Additional dynamic actions can be added here -->
-                        </ul>
-
-                        <ul class="list-unstyled">
                             <li>
-                                <a class="dropdown-item btn btn-light mb-2" href="update_user_data.html"
-                                    style="background-color: #f0f0f0; border: 1px solid #ccc; color: #333;">
+                                <a class="dropdown-item py-2 px-3 btn-light" href="update_user_data.html">
                                     Update Account Info
                                 </a>
                             </li>
                             <li>
-                                <a class="dropdown-item btn btn-light" id="logout"
-                                    style="background-color: #f0f0f0; border: 1px solid #ccc; color: #333;">
+                                <a class="dropdown-item py-2 px-3 btn-light" id="logout">
                                     Log Out
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </div>
+                
 
 
             </div>
@@ -106,8 +101,23 @@
                 <div class="card mb-4">
                     <div class="card-header text-center" id="courses-header">My Course</div>
 
-                    <div id="cards_profile" class="">
+                    <div  class="">
                         <!-- Course Cards will be dynamically inserted here -->
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Thumbnail</th>
+                                    <th scope="col" >Course Name</th>
+                                    <!-- <th scope="col">Skills</th>
+                                    <th scope="col">Time</th> -->
+                                    <th scope="col" >Rating ⭐</th>
+                                    <th scope="col" >Update</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cards_profile">
+                                
+                            </tbody>
+                        </table>
 
 
                     </div>

@@ -52,65 +52,45 @@ function fetchProfileData() {
         document.getElementById('profile-role').innerText = role;
 
         const coursesCardContainer = document.getElementById('cards_profile');
-        // coursesCardContainer.innerHTML = '';
+        coursesCardContainer.innerHTML = ''; // Clear previous content
 
         data.courses.forEach(course => {
-            const courseElement = document.createElement('div');
-            courseElement.className = 'col';
-
             const skills = course.skills_list.map(skill => skill.name).join(', ');
-            const description = course.description.split(' ').slice(0, 10).join(' ') + '...';
+            const courseButtons = role === 'Teacher' ? 
+                `<a href="update_course.html?id=${course.id}" class="card-link btn btn-outline-primary">Update</a>` :
+                `<a href="#" class="card-link btn btn-outline-primary">Continue</a>`;
 
-            let courseButtons = '';
+            // Create the table row (tr) element directly
+            const courseRow = `
+                <tr>
+                    <td class="text-center"><img src="${course.thumbnail}" alt="Course Thumbnail" style="width: 100px; height: auto; text-align:center;" ></td>
+                    <td>${course.name}</td>
+                    <td class="text-center">${course.rating}</td>
+                    <td class="text-center">${courseButtons}</td>
+                </tr>
+            `;
 
-            // Add buttons based on the user's role
-            if (role === 'Teacher') {
-                courseButtons = `
-                    <div class="card-body">
-                        <a href="update_course.html?id=${course.id}" class="card-link btn btn-outline-primary ">Update</a>
-                    </div>
-                `;
-            } else {
-                courseButtons = `
-                    <div class="card-body">
-                        <a href="#"  class="card-link btn btn-outline-primary ">Continue</a>
-                    </div>
-                `;
-            }
-
-            courseElement.innerHTML = `
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th scope="col">Thumbnail</th>
-                        <th scope="col">Course Name</th>
-                        <th scope="col">Skills</th>
-                        <th scope="col">Time</th>
-                        <th scope="col">Rating</th>
-                        <th scope="col">Update</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><img src="${course.thumbnail}" alt="Course Thumbnail" style="width: 100px; height: auto;"></td>
-                        <td>${course.name}</td>
-                        <td>${skills}</td>
-                        <td>${course.time}</td>
-                        <td>${course.rating}⭐</td>
-                        <td>${courseButtons}</td>
-                    </tr>
-                </tbody>
-            </table>
-        `;
-        
-        coursesCardContainer.appendChild(courseElement);
-        
-
+            // Append the row to the table body
+            coursesCardContainer.innerHTML += courseRow;
         });
+{/* <td>${skills}</td>
+<td>${course.time}</td> */}
         // If the user is a teacher, display the "Upload Course" link
         if (role === 'Teacher') {
-            document.getElementById("actions").innerHTML = '<li  ><a href="upload_course.html" class="dropdown-item btn btn-light "  style="background-color: #f0f0f0; border: 1px solid #ccc; color: #333;" >Upload Course</a></li>';
+            const actionsList = document.getElementById("actions");
+        
+            // Create the new <li> element as a string
+            const liElement = `
+                <li>
+                    <a href="upload_course.html" class="dropdown-item">Upload Course</a>
+                </li>
+            `;
+        
+            // Append the new element using innerHTML
+            actionsList.innerHTML = liElement + actionsList.innerHTML;
         }
+        
+        
     })
     .catch(error => {
         console.error('Error:', error);

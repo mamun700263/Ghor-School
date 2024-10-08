@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
     <link href="style/index.css" rel="stylesheet">
+    <link href="style/about.css" rel="stylesheet">
 </head>
 
 <body>
@@ -35,111 +36,74 @@
     </header>
 
     <main role="main" class="container mt-5">
-        <!-- Hero Section -->
         <section class="text-center mb-5">
-            <h1 class="display-4">Welcome to Ghor School</h1>
-            <p class="lead">The Best Online School for Learning and Achieving Your Goals</p>
-            <img src="images/logo.webp" alt="Ghor School Hero Image" class="img-fluid my-4" style="width: 25%;">
-            <a href="courses.html" class="btn btn-primary btn-lg">Explore Our Courses</a>
+            <h1 class="display-4">About Ghor School</h1>
+            <p class="lead">Empowering the next generation of learners with innovative online education.</p>
         </section>
 
-        <!-- Achievements Section -->
-        <section class="my-5">
-            <h2 class="text-center mb-4">Our Achievements</h2>
+        <!-- Mission Section -->
+        <section class="mission-section py-5" >
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <img src="images/pexels-tima-miroshnichenko-5303549.jpg" alt="Our Mission" class="img-fluid" id="out-mission-img">
+                </div>
+                <div class="col-md-6">
+                    <h2>Our Mission</h2>
+                    <p>At Ghor School, our mission is to make education accessible, affordable, and effective for everyone, everywhere. We aim to empower students by offering high-quality courses taught by industry professionals.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Section -->
+        <section class="values-section bg-light py-5">
+            <h2 class="text-center mb-4">Our Core Values</h2>
             <div class="row text-center">
                 <div class="col-md-4">
-                    <div class="achievement-card p-4 border">
-                        <h3>50,000+ Students</h3>
-                        <p>Over 50,000 students have trusted us with their education and have grown in their careers.</p>
-                    </div>
+                    <h5><i class="bi bi-check-circle-fill text-success"></i> Innovation</h5>
+                    <p>We constantly innovate to provide the best learning experiences to our students.</p>
                 </div>
                 <div class="col-md-4">
-                    <div class="achievement-card p-4 border">
-                        <h3>5,000+ Courses</h3>
-                        <p>We offer a wide range of courses in various fields like programming, design, and management.</p>
-                    </div>
+                    <h5><i class="bi bi-check-circle-fill text-success"></i> Integrity</h5>
+                    <p>We uphold the highest standards of ethics and integrity in everything we do.</p>
                 </div>
                 <div class="col-md-4">
-                    <div class="achievement-card p-4 border">
-                        <h3>World-Class Instructors</h3>
-                        <p>Learn from industry experts and educators who are passionate about helping you succeed.</p>
-                    </div>
+                    <h5><i class="bi bi-check-circle-fill text-success"></i> Excellence</h5>
+                    <p>We strive for excellence in all aspects of teaching and learning.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Why Ghor School Section -->
-        <section class="bg-light py-5">
-            <h2 class="text-center mb-4">Why Choose Ghor School?</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <img src="images/why_us.webp" alt="Why Ghor School" class="img-fluid">
+        <!-- Team Section -->
+        <section class="team-section py-5">
+            <h2 class="text-center mb-4">Meet Our Team</h2>
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <img src="images/about/abdullah all mamun.JPG" alt="Team Member 1" class="rounded-circle img-fluid mb-2">
+                    <h5>John Doe</h5>
+                    <p>Founder & CEO</p>
                 </div>
-                <div class="col-md-6">
-                    <ul class="list-unstyled">
-                        <li class="mb-3">
-                            <h5><i class="bi bi-check-circle-fill text-success"></i> Flexible Learning</h5>
-                            <p>Study at your own pace with our flexible online courses, accessible from anywhere in the world.</p>
-                        </li>
-                        <li class="mb-3">
-                            <h5><i class="bi bi-check-circle-fill text-success"></i> Certified Programs</h5>
-                            <p>Earn certificates upon course completion to boost your resume and career prospects.</p>
-                        </li>
-                        <li class="mb-3">
-                            <h5><i class="bi bi-check-circle-fill text-success"></i> Career Support</h5>
-                            <p>Get career guidance and support to help you land your dream job after completing your studies.</p>
-                        </li>
-                    </ul>
+                <div class="col-md-3">
+                    <img src="images/about/abdullah all mamun.JPG" alt="Team Member 2" class="rounded-circle img-fluid mb-2">
+                    <h5>Jane Smith</h5>
+                    <p>Chief Instructor</p>
                 </div>
-            </div>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section class="my-5">
-            <h2 class="text-center mb-4">What Our Students Say</h2>
-            <div id="testimonial-carousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="d-flex justify-content-center">
-                            <div class="testimonial text-center">
-                                <p class="lead">"Ghor School has changed my life. The courses are easy to follow, and I learned so much in a short time."</p>
-                                <h5>- Sarah K.</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="d-flex justify-content-center">
-                            <div class="testimonial text-center">
-                                <p class="lead">"Thanks to Ghor School, I landed my dream job as a software developer!"</p>
-                                <h5>- John D.</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="d-flex justify-content-center">
-                            <div class="testimonial text-center">
-                                <p class="lead">"The instructors are top-notch, and the flexibility of the courses fits perfectly with my busy schedule."</p>
-                                <h5>- Maria L.</h5>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-md-3">
+                    <img src="images/about/abdullah all mamun.JPG" alt="Team Member 3" class="rounded-circle img-fluid mb-2">
+                    <h5>Mark Johnson</h5>
+                    <p>Course Developer</p>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#testimonial-carousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#testimonial-carousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+                <div class="col-md-3">
+                    <img src="images/about/abdullah all mamun.JPG" alt="Team Member 4" class="rounded-circle img-fluid mb-2">
+                    <h5>Lisa Brown</h5>
+                    <p>Support Specialist</p>
+                </div>
             </div>
         </section>
 
         <!-- Call to Action Section -->
-        <section class="text-center py-5 bg-primary text-white">
-            <h2>Ready to Start Learning?</h2>
-            <p>Join Ghor School today and take the first step towards a brighter future!</p>
-            <a href="registration.html" class="btn btn-light btn-lg">Sign Up Now</a>
+        <section class="text-center py-5  text-white" id="call-action">
+            <h2>Join Us and Start Learning Today!</h2>
+            <a href="registration.html" class="btn btn-light btn-lg">Get Started</a>
         </section>
     </main>
 

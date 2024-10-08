@@ -1,8 +1,7 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
+    background-color: #84c6ffa9;
     margin: 0;
-    padding: 20px;
 }
 .course-detail-container {
     background-color: #fff;
@@ -23,6 +22,7 @@ body {
 .course-info h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
+    color: #004085;
 }
 .course-info p {
     font-size: 1.1rem;
@@ -47,7 +47,6 @@ body {
     margin-top: 20px;
 }
 .skills-list span {
-    background-color: #007bff;
     color: #fff;
     padding: 5px 10px;
     border-radius: 20px;
@@ -81,7 +80,7 @@ body {
 .course-info h2 {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #333;
+    color: #004085;
 }
 
 .course-details p {
@@ -96,13 +95,13 @@ body {
     color: #555;
 }
 .btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
+    background-color: #004085;
+    color: #ffffff;
 }
 
 .btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #004085;
+    background-color:  #268836;
+    color: #ffffff;
 }
 
 .course-container {
@@ -112,4 +111,50 @@ body {
 .course-description {
     color: #555;
     font-size: 1rem;
+}
+
+
+
+#top-detail {
+    justify-content: space-around;
+    align-items: center;
+}
+
+#course {
+    width: 66%;
+    margin: auto;
+    justify-content: space-around;
+    box-shadow: 40px 40px 10px rgba(0, 0, 0, 0.1); 
+}
+
+#course-detail {
+    width: 100%;
+    background-color: #FFE8E6;
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding: 30px;
+
+}
+
+#course-thumbnail {
+    background-color: white;
+}
+
+#reviews {
+    width: 100%;
+    background-color: none;
+    background-color: #c9e6ff8c;
+    margin-top: 100px;
+    justify-content: center;
+    align-items: center;
+    align-self:center ;
+}
+
+#reviews-detail {
+    width: 70%;
+    float: right; /* Align to the right */
+    justify-content: center;
+    align-items: center;
+    align-self:center ;
+
 }
