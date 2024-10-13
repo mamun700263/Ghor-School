@@ -118,12 +118,13 @@ const displaySkills = (skills) => {
 
 const displayTeachers = (teachers) => {
     teachers.forEach(teacher => {
+        let profilePicture = teacher.profile_picture &&teacher.profile_picture!== 'None' ? teacher.profile_picture: "images/User-Profile-PNG-Clipart.png";
         const parent = document.getElementById("slider2");
         const li = document.createElement("li");
         li.innerHTML = `
             <div class="card shadow h-100">
                 <div class="ratio ratio-1x1">
-                    <img src="${teacher.profile_picture
+                    <img src="${profilePicture
 }" class="card-img-top" loading="lazy" alt="${teacher.name}">
                 </div>
                 <div class="card-body d-flex flex-column flex-md-row">
@@ -217,29 +218,28 @@ const displayreview = (reviews) => {
             // Make the first item active
             if (index === 0) {
                 div.classList.add("active");
-            }
-
-            // Use the dynamic content for profile picture and username
-            const profilePicture = review.given_by_img || 'default_image.jpg'; // Fallback to a default image
-            const username = review.given_by_name || 'Anonymous'; // Fallback to 'Anonymous' if username is missing
-            const role = review.role || 'Student';
-            const reviewTitle = review.course_name || 'Review Title';
-            const rating = '⭐⭐⭐⭐⭐';
-
-            const reviewText = review.text || 'No review text provided.';
+            }// Use the dynamic content for profile picture and username
+                let profilePicture = review.given_by_img && review.given_by_img !== 'None' ? review.given_by_img : "images/User-Profile-PNG-Clipart.png";
+                const username = review.given_by_name || 'Anonymous'; // Fallback to 'Anonymous' if username is missing
+                const role = review.role || 'Student';
+                const reviewTitle = review.course_name || 'Review Title';
+                const rating = '⭐⭐⭐⭐⭐';
+                const reviewText = review.text || 'No review text provided.';
 
             div.innerHTML = `
-                <div class="card mx-auto text-center" style="width: 50%;">
+                <div class="card mx-auto " style="width: 50%;">
                     <div class="card-header">
                         <img src="${profilePicture}" alt="Profile of ${username}" id="reviews-img-profile">
                         <div class="reviewer-info">
                             <h6>${username}</h6>
                         </div>
+                        <div class="d-flex reviewer-info" >
+                            <p class="me-auto "><strong>${reviewTitle}</strong></p>  
+                            <small class="rating">${rating}</small>
+                        </div>
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title m-auto"><strong>${reviewTitle}</strong></h5>
-                        <small class="rating">${rating}</small>
-                        <p class="card-text mt-4">${reviewText}</p>
+                        <p class="card-text mt-1">${reviewText}</p>
                     </div>
                 </div>
             `;

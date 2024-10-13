@@ -37,8 +37,8 @@ function fetchProfileData() {
         return response.json();
     })
     .then(data => {
-        console.log(data.courses);
-        document.getElementById('profile-picture').src = data.profile_picture || 'images/User-Profile-PNG-Clipart.png';
+        console.log(data);
+        document.getElementById('profile-picture').src = data.profile_picture ;
         document.getElementById('profile-name').innerText = data.username || 'No name';
         document.getElementById('username').innerText = data.username || 'No username';
         document.getElementById('full-name').innerText = data.full_name || 'Full name ';
@@ -77,7 +77,7 @@ function fetchProfileData() {
 <td>${course.time}</td> */}
         // If the user is a teacher, display the "Upload Course" link
         if (role === 'Teacher') {
-            const actionsList = document.getElementById("actions");
+            const actionsList = document.getElementById("addtional-actions");
         
             // Create the new <li> element as a string
             const liElement = `

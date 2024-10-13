@@ -84,6 +84,7 @@ body {
 
 #banner-text .btn:hover {
     background-color: #0066cc;
+    transform: translateY(-2px);
 }
 
 #learn_online ul {
@@ -169,6 +170,18 @@ li p {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+
+#success_stories #btn{
+    background-color: #004080;
+     color: white;
+}
+#success_stories #btn:hover{
+
+    background-color: #0066cc;
+    transform: translateY(-2px);
+}
+
+
 /* Responsive adjustments for success story */
 @media (max-width: 768px) {
     .banner-success-story {
@@ -226,7 +239,7 @@ li p {
 /* Why Us Section Styles */
 #why_us {
     
-    /* background-color: #d6efff; */
+    background-color: #d6efff;
     background-color: #84c6ffa9; 
     color: #0c3f5f;
     border-radius: 8px;
@@ -275,7 +288,7 @@ li p {
 }
 
 #what_we_offer_text button:hover {
-    background-color: #002f5c;
+    background-color: #0066cc;
     transform: translateY(-2px);
 }
 

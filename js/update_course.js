@@ -1,15 +1,17 @@
+// Function to get query parameter from URL
 function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(param);
 }
 
+const skillsApiUrl = `${baseUrl}/skill/skills/`;
 const courseId = getQueryParam('id');
 const courseApiUrl = `${baseUrl}/skill/courses/${courseId}/`;
 
-
+// Fetch course details and populate the form
 fetch(courseApiUrl)
     .then(response => response.json())
-    .then(course => {
+    .then(async course => {
         document.getElementById('course-update').innerHTML = `
         <form id="update-course-form" class="form-container">
             <div class="course-info">
@@ -37,7 +39,12 @@ fetch(courseApiUrl)
                         </div>
                         <div class="skills-list">
                             <label>Skills:</label>
-                            ${course.skills_list.map(skill => `<span class="badge badge-secondary">${skill.name}</span>`).join(' ')}
+                            ${course.skills_list.map(skill => `<span class="badge badge-secondary text-dark">${skill.name}</span>`).join(' ')}
+                        </div>
+                        <div class="mb-3">
+                                <select multiple class="form-control" id="skills-input" name="skills">
+                                    <!-- Options will be populated by JavaScript -->
+                                </select>
                         </div>
                     </div>
                     <div class="course-description w-50">
@@ -47,25 +54,49 @@ fetch(courseApiUrl)
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Update Course</button>
+                <button type="submit" class="btn btn-primary" id="update-course-btn">Update Course</button>
                 <button type="button" id="delete-course-btn" class="btn btn-danger">Delete Course</button>
             </div>
         </form>
         `;
 
-        // Handle update form submission
+        // Fetch and populate skills
+        const skillsInput = document.getElementById('skills-input');
+        try {
+            const response = await fetch(skillsApiUrl);
+            if (!response.ok) {
+                throw new Error('Failed to fetch skills.');
+            }
+            const skills = await response.json();
+            skills.forEach(skill => {
+                const option = document.createElement('option');
+                option.value = skill.id;
+                option.textContent = skill.name;
+                skillsInput.appendChild(option);
+            });
+        } catch (error) {
+            console.error('Error fetching skills:', error);
+        }
+
+        // Update course data on form submission
         document.getElementById('update-course-form').addEventListener('submit', (event) => {
             event.preventDefault();
+        
+            const selectedSkills = Array.from(document.getElementById('skills-input').selectedOptions).map(option => option.value);
+        
             const updatedCourseData = {
                 name: document.getElementById('name-input').value,
                 time: document.getElementById('time-input').value,
                 price: document.getElementById('price-input').value || 0,
                 paid: document.getElementById('paid-input').value === 'true',
                 description: document.getElementById('description-input').value,
+                skills: selectedSkills, // Get all selected skills
             };
-
+            console.log(updatedCourseData);
+        
             updateCourse(courseId, updatedCourseData);
         });
+        
 
         // Handle delete course action
         document.getElementById('delete-course-btn').addEventListener('click', () => {
@@ -83,7 +114,7 @@ fetch(courseApiUrl)
 function updateCourse(courseId, updatedCourseData) {
     const updateUrl = `${baseUrl}/skill/course_update/${courseId}/`;
     const token = localStorage.getItem('authToken');
-    
+
     fetch(updateUrl, {
         method: 'PATCH',
         headers: {
@@ -93,18 +124,20 @@ function updateCourse(courseId, updatedCourseData) {
         },
         body: JSON.stringify(updatedCourseData),
     })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to update course');
+        }
+        return response.json();
+    })
     .then(data => {
         alert('Course updated successfully!');
         console.log(data);
     })
     .catch(error => {
-        alert('Failed to update course.');
-        // console.error('Error:', error);
-        // console.log('Error:', error);
-        console.log(error);
-    })
-    ;
+        alert('Error updating course.');
+        console.error('Error:', error);
+    });
 }
 
 // Function to delete course
@@ -138,9 +171,9 @@ function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {
         const cookies = document.cookie.split(';');
-        for (let i = 0; i < cookies.length; i++) {
-            const cookie = cookies[i].trim();
-            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+        for (let cookie of cookies) {
+            cookie = cookie.trim();
+            if (cookie.startsWith(`${name}=`)) {
                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
                 break;
             }

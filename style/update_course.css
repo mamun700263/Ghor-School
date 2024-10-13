@@ -1,0 +1,49 @@
+/* General Form Styling */
+#update-course-form {
+    background: #f8f9fa; padding: 20px; border-radius: 8px; 
+    box-shadow: 10px 4px 8px rgba(0, 0, 0, 0.1); max-width: 600px; margin: 0 auto;
+}
+
+#update-course-form h1 { font-size: 24px; color: #343a40; text-align: center; margin-bottom: 20px; }
+#update-course-form .form-group { margin-bottom: 15px; }
+#update-course-form label { font-weight: bold; color: #495057; margin-bottom: 5px; }
+
+input, textarea, select {
+    width: 100%;
+    padding: 10px; 
+    border: 1px solid #ced4da; 
+    border-radius: 5px; 
+    font-size: 16px; 
+    color: #495057;
+    transition: border-color 0.3s; 
+    background: #fff;
+
+}
+
+input:focus, textarea:focus, select:focus { border-color: #007bff; }
+textarea { resize: vertical; min-height: 200px; }
+#description-input{
+    height: 400px;
+}
+/* Button Styles */
+button {
+    width: 100%; padding: 12px; border: none; border-radius: 5px; font-size: 18px; color: white; cursor: pointer;
+    transition: background-color 0.3s; margin-top: 15px;
+}
+
+#update-course-btn { background-color:  #004080; }
+#update-course-btn:hover { background-color:  #004080e2; }
+
+#delete-course-btn { background-color: #dc3545; }
+#delete-course-btn:hover { background-color: #c82333; }
+
+/* Skill Badge Styling */
+.badge { padding: 8px; font-size: 14px; color: #fff; background-color: #6c757d; border-radius: 5px; margin: 0 5px 5px 0; }
+
+/* Layout and Responsive */
+.form-container, .info-container { display: flex; flex-direction: column; gap: 20px; }
+.course-details, .course-description { flex: 1; }
+
+@media (min-width: 768px) {
+    .info-container { flex-direction: row; }
+}

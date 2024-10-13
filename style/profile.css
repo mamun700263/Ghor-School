@@ -169,5 +169,36 @@ th{
 }
 #actions #logout:hover {
     background-color: #ff0000; /* Change on hover */
+    cursor: pointer;
+    color: white; /* Text color on hover */
+}
+
+
+#addtional-actions {
+    display: flex; /* Enable flexbox */
+    flex-direction: column; /* Arrange children in a column */
+    align-items: center; /* Center items horizontally */
+    margin: 0;
+    padding: 0;
+}
+
+#addtional-actions li {
+    width: 100%; /* Make list items full width */
+}
+
+#addtional-actions .dropdown-item {
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.2s ease-in-out;
+    /* color: #004080; */
+    background-color:#00000049;;
+    font-weight: bold;
+    display: flex; /* Enable flexbox for button */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    padding: 10px 0; /* Add vertical padding */
+}
+
+#addtional-actions .dropdown-item:hover {
+    background-color: #004080; /* Change on hover */
     color: white; /* Text color on hover */
 }

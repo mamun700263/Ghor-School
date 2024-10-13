@@ -24,6 +24,7 @@ fetch(courseApiUrl)
     .then(response => response.json())
     .then(course => {
         console.log(course);
+        let profilePicture = course.taken_by_img &&course.taken_by_img!== 'None' ? course.taken_by_img: "images/User-Profile-PNG-Clipart.png";
         document.getElementById('course').innerHTML = `
 <div class="rounded shadow-sm p-4" id="course-detail">
     <!-- Course Thumbnail -->
@@ -37,7 +38,7 @@ fetch(courseApiUrl)
         <h2 class="mb-4 d-flex align-items-center justify-content-between">
             ${course.name}
             <div class="instructor d-flex align-items-center">
-                <img src="${course.taken_by_img}" alt="Instructor Image" class="instructor-image rounded-circle me-2" width="40" />
+                <img src="${ course.taken_by_img}" alt="Instructor Image" class="instructor-image rounded-circle me-2" width="40" />
                 <p class="mb-0 fw-bold">${course.taken_by_name}</p>
             </div>
         </h2>
@@ -150,16 +151,16 @@ fetchReview();
 
 const displayreview = (reviews) => {
 
-        const parent = document.getElementById("reviews");
+        const parent = document.getElementById("reviews_course_details");
         if (!parent) {
             console.error("Parent element not found!");
             return;
         }
-
         // Clear the parent element before appending new reviews
         parent.innerHTML = '';
 
         reviews.forEach((review, index) => {
+            console.log('review ',review);
 
             // console.log('review:', review.course,courseId);
             let x = review.course;
@@ -175,20 +176,37 @@ const displayreview = (reviews) => {
                 if (!profilePicture || profilePicture.length < 10) {
                     profilePicture = default_img; 
                 }
+                
                 const username = review.given_by_name || 'Anonymous'; 
                 const role = review.role || 'Student';
                 const reviewTitle = review.course_name || 'Review Title';
                 const rating = review.rating;
                 const reviewText = review.text || 'No review text provided.';
+                // Assume review.time is a valid date string or timestamp
+                const time = new Date(review.time); // Convert the time into a Date object
+
+                // Format the time in a human-readable format (e.g., 'October 12, 2024, 10:45 AM')
+                const formattedTime = time.toLocaleString('en-US', {
+                // weekday: 'short', // e.g., 'Mon'
+                year: 'numeric',
+                month: 'long', // e.g., 'October'
+                day: 'numeric',
+                // hour: 'numeric',
+                // minute: 'numeric',
+                // hour12: true // 12-hour format
+                });
+
+
                 div.innerHTML = `
-                        <div class="card mx-auto" style="width: 65%;">
-                        <div class="card-header">
+                        <div class="card mx-auto my-5" style="width: 65%;">
+                        <div class="card-header text-center">
                             <img src="${profilePicture}" alt="Profile of ${username}" id="reviews-img-profile">
                             <div class="reviewer-info">
                                 <h6>${username}</h6>
                             </div>
                         </div>
                         <div class="card-body">
+                        <p class="text-end">${formattedTime}</p>
                             <small class="rating">${rating}⭐</small>
                             <p class="card-text mt-4">${reviewText}</p>
                         </div>
@@ -200,54 +218,74 @@ const displayreview = (reviews) => {
 };
 
 
+document.getElementById('reviewForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent page refresh
 
+    if (!token) {
+        alert('You are not logged in. Please log in to submit a review.');
+        return;  // Prevent submission if not logged in
+    }
 
+    const rating = document.getElementById('rating').value;
+    const text = document.getElementById('review_text').value;
 
-    document.getElementById('reviewForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent page refresh
-    
-        
-        if (!token) {
-            alert('You are not logged in. Please log in to submit a review.');
+    const reviewData = {
+        course: courseId,
+        rating: rating,
+        text: text,
+    };
 
-            return;  // Prevent submission if not logged in
+    // Send data to DRF
+    fetch(reviewApiUrl, {
+        method: 'POST',
+        headers: {
+            'Authorization': `Token ${token}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(reviewData)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('HTTP error ' + response.status);
         }
+        return response.json();
+    })
+    .then(data => {
+        if (data.id) {
+            alert('Review submitted successfully!');
+            
+            // Create new review element and append to the review list
+            const newReview = `
+                <div class="card mx-auto my-5" style="width: 50%;">
+                    <div class="card-header bg-success text-center">
+                        <img src="${data.given_by_img || 'images/User-Profile-PNG-Clipart.png'}" alt="Profile of ${data.given_by_name || 'Anonymous'}" id="reviews-img-profile" class="rounded-circle" style="width: 80px; height: 80px;">
+                        <div class="reviewer-info mt-2">
+                            <h6>${data.given_by_name || 'Anonymous'}</h6>
+                        </div>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="card-title"><strong>${data.course_name || 'Review Title'}</strong></p>
+                        <small class="rating">${data.rating} ⭐</small>
+                        <p class="card-text mt-3">${data.text}</p>
+                    </div>
+                </div>
+            `;
 
-        const rating = document.getElementById('rating').value;
-        const text = document.getElementById('review_text').value;
-    
-        const reviewData = {
-            course: courseId,
-            rating: rating,
-            text: text,
-        };
-        console.log(reviewData);
-    
-        // Send data to DRF
-        fetch(reviewApiUrl, {
-            method: 'POST',
-            headers: {
-                'Authorization': `Token ${token}`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(reviewData)
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('HTTP error ' + response.status);
-            }
-            return response.json();
-        })
-        // .then(data => {
-        //     if (data.id) {
-        //         alert('Review submitted successfully!');
-        //     } else {
-        //         alert('Error: ' + (data.detail || data.error || 'Unable to submit review.'));
-        //     }
-        // })
-        .catch(error => {
-            console.error('Error submitting review:', error); 
-            alert('Error submitting review.');
-        });
+            // Append the new review to the parent container
+            const reviewList = document.getElementById('review-list');
+            reviewList.insertAdjacentHTML('afterbegin', newReview); // Adds the new review to the top of the list
+
+            // Clear the review form
+            document.getElementById('rating').value = '';
+            document.getElementById('review_text').value = '';
+        } else {
+            alert('Error: ' + (data.detail || data.error || 'Unable to submit review.'));
+        }
+    })
+    .catch(error => {
+        const messageElement = document.getElementById('enroll-message-review');
+        messageElement.innerText = 'Teachers cannot do review';
+        messageElement.style.color = 'red';
+        console.log(error);
     });
-    
+});
