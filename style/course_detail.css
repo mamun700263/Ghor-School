@@ -118,11 +118,15 @@ body {
 #top-detail {
     justify-content: space-around;
     align-items: center;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 #course {
-    width: 66%;
-    margin: auto;
+    width: 55%;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     box-shadow: 40px 40px 10px rgba(0, 0, 0, 0.1); 
 }
@@ -166,7 +170,7 @@ body {
 }
 /* General Form Styles */
 #add-review {
-    width: 50%;
+    width: 35%;
     height: auto;
     margin: 0 auto;
     padding: 20px;

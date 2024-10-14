@@ -217,12 +217,11 @@ const displayreview = (reviews) => {
         }); 
 };
 
-
 document.getElementById('reviewForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent page refresh
 
     if (!token) {
-        alert('You are not logged in. Please log in to submit a review.');
+        displayMessage('You are not logged in. Please log in to submit a review.', 'error');
         return;  // Prevent submission if not logged in
     }
 
@@ -245,14 +244,17 @@ document.getElementById('reviewForm').addEventListener('submit', function(event)
         body: JSON.stringify(reviewData)
     })
     .then(response => {
-        if (!response.ok) {
-            throw new Error('HTTP error ' + response.status);
-        }
-        return response.json();
+        return response.json().then(data => {
+            if (!response.ok) {
+                throw data; // Pass the error message data to the catch block
+            }
+            return data;
+        });
     })
     .then(data => {
-        if (data.id) {
-            alert('Review submitted successfully!');
+        if (data.message) {
+            // Display success message
+            displayMessage('Review submitted successfully!', 'success');
             
             // Create new review element and append to the review list
             const newReview = `
@@ -278,14 +280,38 @@ document.getElementById('reviewForm').addEventListener('submit', function(event)
             // Clear the review form
             document.getElementById('rating').value = '';
             document.getElementById('review_text').value = '';
-        } else {
-            alert('Error: ' + (data.detail || data.error || 'Unable to submit review.'));
         }
     })
     .catch(error => {
-        const messageElement = document.getElementById('enroll-message-review');
-        messageElement.innerText = 'Teachers cannot do review';
-        messageElement.style.color = 'red';
-        console.log(error);
+        // Display the error message from DRF response
+        if (error.error) {
+            displayMessage(error.error, 'error'); // Pass the error message to displayMessage function
+            console.log(error);
+        } else {
+            displayMessage('An unexpected error occurred.', 'error');
+        }
+        console.error('hrere',error);
+
     });
 });
+
+/**
+ * Function to display success or error messages on the frontend
+ * @param {string} message - The message to display
+ * @param {string} type - The type of message ('success' or 'error')
+ */
+function displayMessage(message, type) {
+    const messageElement = document.getElementById('enroll-message-review');
+    messageElement.innerText = message;
+    messageElement.style.display = 'block'; // Ensure the element is visible
+    if (type === 'success') {
+        messageElement.style.color = 'green';
+    } else if (type === 'error') {
+        messageElement.style.color = 'red';
+    }
+
+    // Automatically hide the message after 5 seconds
+    setTimeout(() => {
+        messageElement.style.display = 'none';
+    }, 5000);
+}
