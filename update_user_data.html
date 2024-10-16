@@ -11,6 +11,7 @@
 
 <body>
     <header>
+
         <nav class="navbar navbar-expand-lg  text-light" style="padding-left: 20px; padding-right: 20px; background-color: #004080; color: #f8f8f8;">
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -40,6 +41,7 @@
                 <!-- Update Profile Form -->
                 <div class="card">
                     <div class="card-header">Update Profile</div>
+                    <small id="update-message" class="text-success text-center"></small>
                     <div class="card-body">
                         <form id="update-profile-form">
                             <div class="mb-3">
@@ -48,11 +50,11 @@
                             </div>
                             <div class="mb-3">
                                 <label for="first_name-input" class="form-label">First Name</label>
-                                <input type="text" class="form-control" id="first_name-input" name="first_name" required>
+                                <input type="text" class="form-control" id="first_name-input" name="first_name" >
                             </div>
                             <div class="mb-3">
                                 <label for="last_name-input" class="form-label">Last Name</label>
-                                <input type="text" class="form-control" id="last_name-input" name="last_name" required>
+                                <input type="text" class="form-control" id="last_name-input" name="last_name" >
                             </div>
                             <div class="mb-3">
                                 <label for="email-input" class="form-label">Email Address</label>
@@ -60,23 +62,24 @@
                             </div>
                             <div class="mb-3">
                                 <label for="mobile-input" class="form-label">Mobile</label>
-                                <input type="tel" class="form-control" id="mobile-input" name="mobile" required>
+                                <input type="tel" class="form-control" id="mobile-input" name="mobile" maxlength="10">
                             </div>
+                            
                             <div class="mb-3">
                                 <label for="date_of_birth-input" class="form-label">Date of Birth</label>
-                                <input type="date" class="form-control" id="date_of_birth-input" name="date_of_birth" required>
+                                <input type="date" class="form-control" id="date_of_birth-input" name="date_of_birth" >
                             </div>
                             <div class="d-grid">
-                                <button type="submit" class="btn text-light" style="background-color: #004080;">Update Profile</button>
+                                <button type="submit" class="btn text-light" style="background-color: #004080;" id="update-profile-submit">Update Profile</button>
                             </div>
-                            <small id="update-message" class="text-success"></small>
+                            
                         </form>
                         
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+    </main>        <div id="loader" class="loader" style="display:none;"></div>
     <footer id="footer" class="mt-5"></footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

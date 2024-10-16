@@ -47,3 +47,7 @@ button {
 @media (min-width: 768px) {
     .info-container { flex-direction: row; }
 }
+
+body{
+    background-color: rgb(195, 241, 242);
+}

@@ -7,11 +7,15 @@ function getQueryParam(param) {
 const skillsApiUrl = `${baseUrl}/skill/skills/`;
 const courseId = getQueryParam('id');
 const courseApiUrl = `${baseUrl}/skill/courses/${courseId}/`;
+let error_message = document.getElementById("error-message");
+let loader = document.getElementById('loader');
+let errorMessage = document.getElementById('error-message2');
 
 // Fetch course details and populate the form
 fetch(courseApiUrl)
     .then(response => response.json())
     .then(async course => {
+        console.log(course.skills_list);
         document.getElementById('course-update').innerHTML = `
         <form id="update-course-form" class="form-container">
             <div class="course-info">
@@ -42,9 +46,7 @@ fetch(courseApiUrl)
                             ${course.skills_list.map(skill => `<span class="badge badge-secondary text-dark">${skill.name}</span>`).join(' ')}
                         </div>
                         <div class="mb-3">
-                                <select multiple class="form-control" id="skills-input" name="skills">
-                                    <!-- Options will be populated by JavaScript -->
-                                </select>
+                            <select multiple class="form-control" id="skills-input" name="skills"></select>
                         </div>
                     </div>
                     <div class="course-description w-50">
@@ -81,22 +83,22 @@ fetch(courseApiUrl)
         // Update course data on form submission
         document.getElementById('update-course-form').addEventListener('submit', (event) => {
             event.preventDefault();
-        
-            const selectedSkills = Array.from(document.getElementById('skills-input').selectedOptions).map(option => option.value);
-        
+            loader.style.display = 'block'; // Show loader
+
+            let selectedSkills = Array.from(document.getElementById('skills-input').selectedOptions).map(option => option.value);
+            console.log('before edit', selectedSkills);
+
             const updatedCourseData = {
                 name: document.getElementById('name-input').value,
                 time: document.getElementById('time-input').value,
                 price: document.getElementById('price-input').value || 0,
                 paid: document.getElementById('paid-input').value === 'true',
                 description: document.getElementById('description-input').value,
-                skills: selectedSkills, // Get all selected skills
+                skills: selectedSkills,
             };
-            console.log(updatedCourseData);
-        
+
             updateCourse(courseId, updatedCourseData);
         });
-        
 
         // Handle delete course action
         document.getElementById('delete-course-btn').addEventListener('click', () => {
@@ -120,23 +122,26 @@ function updateCourse(courseId, updatedCourseData) {
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Token ${token}`,
-            'X-CSRFToken': getCookie('csrftoken')
+            'X-CSRFToken': getCookie('csrftoken'),
         },
         body: JSON.stringify(updatedCourseData),
     })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Failed to update course');
+    .then(response => response.json().then(data => ({status: response.status, data})))
+    .then(({status, data}) => {
+        loader.style.display = 'none'; // Hide loader
+
+        if (status === 200) {
+            alert('Course updated successfully!');
+            console.log(data);
+        } else {
+            console.error('Error:', data);
+            errorMessage.innerHTML = `<p>Error: ${data.error || 'Failed to update course'}</p>`;
         }
-        return response.json();
-    })
-    .then(data => {
-        alert('Course updated successfully!');
-        console.log(data);
     })
     .catch(error => {
-        alert('Error updating course.');
+        loader.style.display = 'none'; // Hide loader
         console.error('Error:', error);
+        errorMessage.innerHTML = `<p>Error: ${error.message}</p>`;
     });
 }
 
@@ -149,19 +154,22 @@ function deleteCourse(courseId) {
         method: 'DELETE',
         headers: {
             'Authorization': `Token ${token}`,
-            'X-CSRFToken': getCookie('csrftoken')
-        }
+            'X-CSRFToken': getCookie('csrftoken'),
+        },
     })
     .then(response => {
+        loader.style.display = 'none'; // Hide loader
+
         if (response.status === 204) {
-            alert('Course deleted successfully!');
-            window.location.href = 'profile.html';  // Redirect to the courses page
+            error_message.innerHTML = '<h3>Course deleted successfully!</h3>';
+            window.location.href = 'profile.html'; // Redirect to profile page
         } else {
             throw new Error('Failed to delete course');
         }
     })
     .catch(error => {
-        alert('Error deleting course.');
+        loader.style.display = 'none'; // Hide loader
+        error_message.innerHTML = `<h3>Error deleting the course</h3>`;
         console.error('Error:', error);
     });
 }

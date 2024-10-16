@@ -1,14 +1,14 @@
-const courseApiUrl = `${baseUrl}/skill/courses/`;
-const skillsApiUrl = `${baseUrl}/skill/skills/`;
 
+const skillsApiUrl = `${baseUrl}/skill/skills/`;
+const courseApiUrl = `${baseUrl}/skill/courses/`;
 document.addEventListener('DOMContentLoaded', async () => {
     const form = document.getElementById('course-upload-form');
     const paidInput = document.getElementById('paid-input');
     const priceSection = document.getElementById('price-section');
-    const skillsInput = document.getElementById('skills-input');
+    const skillsContainer = document.getElementById('skills-checkboxes');
     let profileId = null;
 
-    // Fetch skills from API and populate the select dropdown
+    // Fetch skills from API and populate the checkboxes
     try {
         const response = await fetch(skillsApiUrl);
         if (!response.ok) {
@@ -16,10 +16,21 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
         const data = await response.json();
         data.forEach(skill => {
-            const option = document.createElement('option');
-            option.value = skill.id;
-            option.textContent = skill.name;
-            skillsInput.appendChild(option);
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.id = `skill-${skill.id}`;
+            checkbox.name = 'skills';
+            checkbox.value = skill.id;
+            checkbox.classList="mx-3"
+
+            const label = document.createElement('label');
+            label.htmlFor = `skill-${skill.id}`;
+            label.textContent = skill.name;
+
+            // Append checkbox and label to the container
+            skillsContainer.appendChild(checkbox);
+            skillsContainer.appendChild(label);
+            skillsContainer.appendChild(document.createElement('br'));  // New line
         });
     } catch (error) {
         console.error('Error fetching skills:', error);
@@ -46,8 +57,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
 
             const data = await response.json();
-            profileId = data.id; 
-            console.log('the',data.id);
+            profileId = data.id;
+            console.log('Profile ID:', data.id);
 
         } catch (error) {
             console.error('Error fetching profile data:', error);
@@ -56,7 +67,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else {
         document.getElementById('upload-message').innerText = 'You need to be logged in to upload a course.';
     }
-
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -93,9 +103,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
     
-
-
-
+        // Gather selected skills (checkboxes)
+        const selectedSkills = Array.from(document.querySelectorAll('input[name="skills"]:checked'))
+            .map(checkbox => parseInt(checkbox.value));
     
         const courseData = {
             name: formData.get('name'),
@@ -105,11 +115,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             paid: formData.get('paid') === 'true',
             price: formData.get('price') || null,
             time: formData.get('time'),
-            skills: Array.from(formData.getAll('skills')).map(id => parseInt(id))
+            skills: selectedSkills
         };
-        
-        
-        
     
         console.log('Course Data:', JSON.stringify(courseData, null, 2)); // Log the data being sent
     
@@ -130,16 +137,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         
             document.getElementById('upload-message').innerText = 'Course uploaded successfully!';
-            //take to profile.html
             form.reset();
             window.location.href = '/profile.html';
         } catch (error) {
             console.error('Course upload failed:', error);
             document.getElementById('upload-message').innerText = 'Course upload failed. Please try again.';
         }
-        
-        
     });
-    
-    
 });

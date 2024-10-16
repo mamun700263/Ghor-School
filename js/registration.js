@@ -56,7 +56,7 @@ function submitForm(event) {
         if (data.success) {
             window.location.href = 'login.html'; 
         } else {
-            errorMessageElement.innerText = data.message || 'Registration failed.';
+            errorMessageElement.innerText = data.message || 'Username or email unavailable';
         }
     })
     .catch(error => {

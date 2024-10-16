@@ -116,18 +116,13 @@ body {
 
 
 #top-detail {
-    justify-content: space-around;
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
+display: block;
 }
 
 #course {
     width: 55%;
     padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    margin: auto;
     box-shadow: 40px 40px 10px rgba(0, 0, 0, 0.1); 
 }
 
@@ -142,6 +137,10 @@ body {
 
 #course-thumbnail {
     background-color: white;
+}
+#thumbnail-img{
+    background-color: white;
+    width: 50%;
 }
 
 #reviews_course_details
@@ -170,9 +169,10 @@ body {
 }
 /* General Form Styles */
 #add-review {
-    width: 35%;
-    height: auto;
-    margin: 0 auto;
+    width: 50%;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
     padding: 20px;
     background-color: #ffffff;
     border-radius: 10px;
@@ -256,4 +256,9 @@ textarea#review_text {
     .btn-submit {
         font-size: 16px;
     }
+}
+#review-holder{
+    text-align: center;
+    align-items: center;
+    justify-content: space-around;
 }

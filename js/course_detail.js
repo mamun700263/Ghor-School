@@ -26,10 +26,10 @@ fetch(courseApiUrl)
         console.log(course);
         let profilePicture = course.taken_by_img &&course.taken_by_img!== 'None' ? course.taken_by_img: "images/User-Profile-PNG-Clipart.png";
         document.getElementById('course').innerHTML = `
-<div class="rounded shadow-sm p-4" id="course-detail">
+<div class="rounded shadow-sm p-4 " id="course-detail">
     <!-- Course Thumbnail -->
     <div class="w-100 text-center mb-4" id="course-thumbnail">
-        <img src="${course.thumbnail}" alt="Course Thumbnail" class="img-fluid rounded" />
+        <img src="${course.thumbnail}" alt="Course Thumbnail" class="img-fluid rounded" id="thumbnail-img" />
     </div>
 
     <!-- Course Information -->
@@ -45,7 +45,7 @@ fetch(courseApiUrl)
 
         <!-- Course Rating and Comments Icon -->
         <div class="d-flex align-items-center mb-3">
-            <span class=""><strong>Skills:</strong> ${course.rating} ⭐</span>
+            <span class=""><strong>Ratings:</strong> ${course.rating} ⭐</span>
             <i class="fa-solid fa-comment ms-2" style="color: #004080;"></i>
         </div>
 
