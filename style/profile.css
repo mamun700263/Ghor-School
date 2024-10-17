@@ -154,7 +154,7 @@ th{
 #actions .dropdown-item {
     border-radius: 5px; /* Rounded corners */
     transition: background-color 0.2s ease-in-out;
-    /* color: #004080; */
+    color: #004080;
     background-color:#00000049;;
     font-weight: bold;
     display: flex; /* Enable flexbox for button */
@@ -167,10 +167,16 @@ th{
     background-color: #004080; /* Change on hover */
     color: white; /* Text color on hover */
 }
+
 #actions #logout:hover {
     background-color: #ff0000; /* Change on hover */
     cursor: pointer;
     color: white; /* Text color on hover */
+}
+#actions #logout{
+    /* background-color: #ff0000; Change on hover */
+    cursor: pointer;
+    color: #ff0000; /* Text color on hover */
 }
 
 
@@ -189,7 +195,7 @@ th{
 #addtional-actions .dropdown-item {
     border-radius: 5px; /* Rounded corners */
     transition: background-color 0.2s ease-in-out;
-    /* color: #004080; */
+    color: #004080;
     background-color:#00000049;;
     font-weight: bold;
     display: flex; /* Enable flexbox for button */
