@@ -258,7 +258,7 @@ document.getElementById('reviewForm').addEventListener('submit', function(event)
         if (data.message) {
             // Display success message
             displayMessage('Review submitted successfully!', 'success');
-            
+            location.reload();
             // Create new review element and append to the review list
             const newReview = `
                 <div class="card mx-auto my-5" style="width: 50%;">
@@ -290,9 +290,10 @@ document.getElementById('reviewForm').addEventListener('submit', function(event)
         if (error.error) {
             displayMessage(error.error, 'error'); // Pass the error message to displayMessage function
             console.log(error);
-        } else {
-            displayMessage('An unexpected error occurred.', 'error');
-        }
+        } 
+        // else {
+        //     displayMessage('An unexpected error occurred.', 'error');
+        // }
         console.error('hrere',error);
 
     });
