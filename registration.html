@@ -71,8 +71,11 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="mobile" class="form-label">Mobile</label>
-                                    <input type="tel" class="form-control" id="mobile" name="mobile" placeholder="mobile number" required>
+                                    <input type="tel" class="form-control" id="mobile" name="mobile" placeholder="mobile number" required 
+                                        pattern="\d{12}" maxlength="12" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                                    <small class="text-muted">Mobile number must be 12 digits.</small>
                                 </div>
+                                
                             </div>
     
                             <!-- Password and Confirm Password in the same row -->
@@ -86,7 +89,6 @@
                                     <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm password" required>
                                 </div>
                             </div>
-    
                             <!-- User Type Selection -->
                             <fieldset class="mb-3">
                                 <legend class="form-label">Register As</legend>
