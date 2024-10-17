@@ -98,13 +98,16 @@ fetch(courseApiUrl)
             };
 
             updateCourse(courseId, updatedCourseData);
+            location.reload(); 
         });
 
         // Handle delete course action
         document.getElementById('delete-course-btn').addEventListener('click', () => {
             if (confirm('Are you sure you want to delete this course?')) {
                 deleteCourse(courseId);
+                window.location.href = 'profile.html'; // Redirect to profile.html after the course is deleted
             }
+            
         });
     })
     .catch(error => {
@@ -138,6 +141,7 @@ function updateCourse(courseId, updatedCourseData) {
     .then(({status, data}) => {
         console.log(data)
         loader.style.display = 'none'; // Hide loader
+        location.reload(); 
 
         if (status === 200) {
             // alert('Course updated successfully!');
@@ -152,7 +156,6 @@ function updateCourse(courseId, updatedCourseData) {
         loader.style.display = 'none'; // Hide loader
         // console.error('Error:', error);
         errorMessage.innerHTML = `<p>Error: ${error.message}</p>`;
-        console.log(error,'no fucking error');
     });
 }
 
@@ -197,6 +200,7 @@ function deleteCourse(courseId) {
         } else {
             throw new Error('Failed to delete course');
         }
+        location.reload(); 
     })
     .catch(error => {
         loader.style.display = 'none'; // Hide loader
