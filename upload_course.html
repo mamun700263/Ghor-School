@@ -38,6 +38,7 @@
 
 
     </header>
+    <div id="loader" class="loader" style="display:none;"></div>
 
     <main role="main" class="container my-5">
         <div class="row">
@@ -78,8 +79,9 @@
                             </div>
                             <div class="mb-3">
                                 <label for="time-input" class="form-label">Time (hours)</label>
-                                <input type="number" class="form-control" id="time-input" name="time" required>
+                                <input type="number" class="form-control" id="time-input" name="time" min="0" step="1" required>
                             </div>
+                            
                             <div class="d-grid">
                                 <button type="submit" class="btn" id="upload-button">Upload Course</button>
                             </div>
