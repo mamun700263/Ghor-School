@@ -199,16 +199,19 @@ const displayreview = (reviews) => {
 
                 div.innerHTML = `
                         <div class="card mx-auto my-5" style="width: 65%;">
-                        <div class="card-header text-center">
+                        <div class="card-header">
                             <img src="${profilePicture}" alt="Profile of ${username}" id="reviews-img-profile">
                             <div class="reviewer-info">
                                 <h6>${username}</h6>
                             </div>
                         </div>
                         <div class="card-body">
-                        <p class="text-end">${formattedTime}</p>
-                            <small class="rating">${rating}⭐</small>
-                            <p class="card-text mt-4">${reviewText}</p>
+                        <div class="d-flex">
+                        
+                            <small class="rating text-start">${rating}⭐</small>
+                            <p class="text-end ms-auto">${formattedTime}</p>
+                        </div> 
+                            <p class="card-text text-start my-1">${reviewText}</p>
                         </div>
                     </div>
                 `;

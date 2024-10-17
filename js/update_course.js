@@ -112,6 +112,13 @@ fetch(courseApiUrl)
         document.getElementById('course-update').innerHTML = '<p>Error loading course details.</p>';
     });
 
+
+
+
+
+
+
+
 // Function to update course
 function updateCourse(courseId, updatedCourseData) {
     const updateUrl = `${baseUrl}/skill/course_update/${courseId}/`;
@@ -126,12 +133,15 @@ function updateCourse(courseId, updatedCourseData) {
         },
         body: JSON.stringify(updatedCourseData),
     })
-    .then(response => response.json().then(data => ({status: response.status, data})))
+    .then(response => response.json().then(data => 
+        ({status: response.status, data})))
     .then(({status, data}) => {
+        console.log(data)
         loader.style.display = 'none'; // Hide loader
 
         if (status === 200) {
-            alert('Course updated successfully!');
+            // alert('Course updated successfully!');
+            errorMessage.innerHTML = `Course updated successfully!</p>`;
             console.log(data);
         } else {
             console.error('Error:', data);
@@ -140,10 +150,31 @@ function updateCourse(courseId, updatedCourseData) {
     })
     .catch(error => {
         loader.style.display = 'none'; // Hide loader
-        console.error('Error:', error);
+        // console.error('Error:', error);
         errorMessage.innerHTML = `<p>Error: ${error.message}</p>`;
+        console.log(error,'no fucking error');
     });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Function to delete course
 function deleteCourse(courseId) {
