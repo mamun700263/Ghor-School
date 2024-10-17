@@ -35,6 +35,7 @@
             </div>
         </nav>
     
+        <div id="loader" class="loader" style="display:none;"></div>
 
 
     </header>
@@ -73,7 +74,7 @@
                                     <label for="mobile" class="form-label">Mobile</label>
                                     <input type="tel" class="form-control" id="mobile" name="mobile" placeholder="mobile number" required 
                                         pattern="\d{12}" maxlength="12" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
-                                    <!-- <small class="text-muted text-danger">Mobile number must be 12 digits.</small> -->
+                                    <small class="text-danger">Mobile number must be 12 digits.</small>
                                 </div>
                                 
                             </div>
