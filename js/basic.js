@@ -1,6 +1,6 @@
 // Set up the API URLs
-const baseUrl = "http://127.0.0.1:8000";
-// const baseUrl = "https://online-school-1wkk.onrender.com";
+// const baseUrl = "http://127.0.0.1:8000";
+const baseUrl = "https://online-school-lac.vercel.app";
 const profile_pic = "images/User-Profile-PNG-Clipart.png";
 const imgbbApiKey = "0582ac2891ffebcd2e07d50f6e11524a"; 
 const profileApiUrl = `${baseUrl}/accounts/profile/`;

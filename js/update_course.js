@@ -19,7 +19,7 @@ fetch(courseApiUrl)
         document.getElementById('course-update').innerHTML = `
         <form id="update-course-form" class="form-container">
             <div class="course-info">
-                <h1>Edit Course: ${course.name}</h1>
+                <h1><strong>${course.name}</strong></h1>
                 <div class="info-container">
                     <div class="course-details w-50">
                         <div class="form-group">
