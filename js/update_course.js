@@ -12,6 +12,7 @@ let loader = document.getElementById('loader');
 let errorMessage = document.getElementById('error-message2');
 
 // Fetch course details and populate the form
+// Fetch course details and populate the form
 fetch(courseApiUrl)
     .then(response => response.json())
     .then(async course => {
@@ -100,26 +101,19 @@ fetch(courseApiUrl)
             };
 
             updateCourse(courseId, updatedCourseData);
-            location.reload(); 
         });
 
         // Handle delete course action
         document.getElementById('delete-course-btn').addEventListener('click', () => {
             if (confirm('Are you sure you want to delete this course?')) {
                 deleteCourse(courseId);
-                window.location.href = 'profile.html'; // Redirect to profile.html after the course is deleted
             }
-            
         });
     })
     .catch(error => {
         console.error('Error fetching course details:', error);
         document.getElementById('course-update').innerHTML = '<p>Error loading course details.</p>';
     });
-
-
-
-
 
 
 
@@ -187,10 +181,8 @@ document.getElementById('update-course-form').addEventListener('submit', functio
             errorMessage.textContent = 'Please check your inputs';
         } 
     }, 2000); // Simulate 2 seconds delay, replace with actual login request duration
+    location.reload(); 
 });
-
-
-
 
 
 
@@ -208,8 +200,13 @@ document.getElementById('update-course-form').addEventListener('submit', functio
 
 // Function to delete course
 function deleteCourse(courseId) {
-    const deleteUrl = `${baseUrl}/skill/course_update/${courseId}/`;
+    const deleteUrl = `${baseUrl}/skill/courses/${courseId}/`; // Corrected the delete URL
     const token = localStorage.getItem('authToken');
+    const loader = document.getElementById('loader'); // Make sure loader exists
+    const error_message = document.getElementById("error-message");
+
+    // Show the loader while the request is being processed
+    loader.style.display = 'block';
 
     fetch(deleteUrl, {
         method: 'DELETE',
@@ -219,22 +216,27 @@ function deleteCourse(courseId) {
         },
     })
     .then(response => {
-        loader.style.display = 'none'; // Hide loader
+        // Hide the loader once the request is complete
+        loader.style.display = 'none';
 
-        if (response.status === 204) {
+        if (response.status === 204) { // Check if the deletion was successful
             error_message.innerHTML = '<h3>Course deleted successfully!</h3>';
-            window.location.href = 'profile.html'; // Redirect to profile page
+            // Redirect to profile page after a short delay to let the user see the message
+            setTimeout(() => {
+                window.location.href = 'profile.html';
+            }, 1500);
         } else {
             throw new Error('Failed to delete course');
         }
-        location.reload(); 
     })
     .catch(error => {
-        loader.style.display = 'none'; // Hide loader
-        error_message.innerHTML = `<h3>Error deleting the course</h3>`;
+        // Hide the loader if there was an error
+        loader.style.display = 'none';
+        error_message.innerHTML = `<h3>Error deleting the course. Please try again.</h3>`;
         console.error('Error:', error);
     });
 }
+
 
 // Helper to get CSRF token
 function getCookie(name) {

@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         
             document.getElementById('upload-message').innerText = 'Course uploaded successfully!';
             form.reset();
-            window.location.href = 'Ghor-School/profile.html';
+            window.location.href = 'profile.html';
         } catch (error) {
             console.error('Course upload failed:', error);
             document.getElementById('upload-message').innerText = 'Course upload failed. Please try again.';
