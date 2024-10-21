@@ -62,10 +62,6 @@ fetch(courseApiUrl)
             <strong>Skills:</strong>
             ${course.skills_list.map(skill => `<span class="badge bg-secondary me-1">${skill.name}</span>`).join('')}
         </div>
-
-        <!-- Course Description -->
-        <p class="text-muted">${course.description}</p>
-
         <!-- Enroll Button -->
         <div class="enroll-container text-center mt-4">
             <button class="btn btn-primary btn-lg" 
@@ -75,6 +71,10 @@ fetch(courseApiUrl)
             </button>
             <p id="enroll-message" class="mt-3"></p>
         </div>
+        <!-- Course Description -->
+        <p class="text-muted">${course.description}</p>
+
+
     </div>
 </div>
         `;
