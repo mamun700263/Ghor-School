@@ -116,8 +116,6 @@ fetch(courseApiUrl)
     });
 
 
-
-
 // Function to update course
 function updateCourse(courseId, updatedCourseData) {
     const updateUrl = `${baseUrl}/skill/course_update/${courseId}/`;
@@ -133,16 +131,19 @@ function updateCourse(courseId, updatedCourseData) {
         body: JSON.stringify(updatedCourseData),
     })
     .then(response => response.json().then(data => 
-        ({status: response.status, data})))
-    .then(({status, data}) => {
-        console.log(data)
+        ({ status: response.status, data })))
+    .then(({ status, data }) => {
         loader.style.display = 'none'; // Hide loader
-        location.reload(); 
-
+        
         if (status === 200) {
-            // alert('Course updated successfully!');
-            errorMessage.innerHTML = `Course updated successfully!</p>`;
-            console.log(data);
+            // Show success message
+            errorMessage.innerHTML = `<p>Course updated successfully!</p>`;
+            console.log('Updated course data:', data);
+
+            // Reload the page after showing success message, add delay to ensure user sees the message
+            setTimeout(() => {
+                location.reload();
+            }, 200); // 200ms delay before reload
         } else {
             console.error('Error:', data);
             errorMessage.innerHTML = `<p>Error: ${data.error || 'Failed to update course'}</p>`;
@@ -150,63 +151,14 @@ function updateCourse(courseId, updatedCourseData) {
     })
     .catch(error => {
         loader.style.display = 'none'; // Hide loader
-        // console.error('Error:', error);
         errorMessage.innerHTML = `<p>Error: ${error.message}</p>`;
     });
 }
 
-
-
-document.getElementById('update-course-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the form from submitting immediately
-    const loader = document.getElementById('loader');
-    const body = document.body;
-    const errorMessage = document.getElementById('error-message2');
-
-    // Show loader and add blur effect to the body
-    loader.style.display = 'block';
-    body.classList.add('blurred'); // Add the blurred class to the body
-
-    // Simulate login process (replace with actual login logic)
-    setTimeout(() => {
-        // After the simulated delay, hide the loader and remove blur effect
-        loader.style.display = 'none';
-        body.classList.remove('blurred'); // Remove the blurred class
-
-        // Simulate success or error handling (replace with actual server response handling)
-        const success = Math.random() > 0.5; // Simulate random success/failure
-
-        if (!success) {
-           // Show an error message
-            errorMessage.textContent = 'Please check your inputs';
-        } 
-    }, 2000); // Simulate 2 seconds delay, replace with actual login request duration
-    location.reload(); 
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Function to delete course
 function deleteCourse(courseId) {
-    const deleteUrl = `${baseUrl}/skill/courses/${courseId}/`; // Corrected the delete URL
+    const deleteUrl = `${baseUrl}/skill/course_update/${courseId}/`;
     const token = localStorage.getItem('authToken');
-    const loader = document.getElementById('loader'); // Make sure loader exists
-    const error_message = document.getElementById("error-message");
-
-    // Show the loader while the request is being processed
-    loader.style.display = 'block';
 
     fetch(deleteUrl, {
         method: 'DELETE',
@@ -216,27 +168,50 @@ function deleteCourse(courseId) {
         },
     })
     .then(response => {
-        // Hide the loader once the request is complete
-        loader.style.display = 'none';
+        loader.style.display = 'none'; // Hide loader
 
-        if (response.status === 204) { // Check if the deletion was successful
+        if (response.status === 204) {
+            // Show success message and redirect to profile page
             error_message.innerHTML = '<h3>Course deleted successfully!</h3>';
-            // Redirect to profile page after a short delay to let the user see the message
             setTimeout(() => {
-                window.location.href = 'profile.html';
-            }, 1500);
+                window.location.href = 'profile.html'; // Redirect after 200ms delay
+            }, 200);
         } else {
             throw new Error('Failed to delete course');
         }
     })
     .catch(error => {
-        // Hide the loader if there was an error
-        loader.style.display = 'none';
-        error_message.innerHTML = `<h3>Error deleting the course. Please try again.</h3>`;
+        loader.style.display = 'none'; // Hide loader
+        error_message.innerHTML = `<h3>Error deleting the course</h3>`;
         console.error('Error:', error);
     });
 }
 
+// Handle form submission for course update
+document.getElementById('update-course-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting immediately
+    loader.style.display = 'block'; // Show loader
+
+    let selectedSkills = Array.from(document.getElementById('skills-input').selectedOptions).map(option => option.value);
+
+    const updatedCourseData = {
+        name: document.getElementById('name-input').value,
+        time: document.getElementById('time-input').value,
+        price: document.getElementById('price-input').value || 0,
+        paid: document.getElementById('paid-input').value === 'true',
+        description: document.getElementById('description-input').value,
+        skills: selectedSkills,
+    };
+
+    updateCourse(courseId, updatedCourseData);
+});
+
+// Handle course deletion
+document.getElementById('delete-course-btn').addEventListener('click', () => {
+    if (confirm('Are you sure you want to delete this course?')) {
+        deleteCourse(courseId);
+    }
+});
 
 // Helper to get CSRF token
 function getCookie(name) {
