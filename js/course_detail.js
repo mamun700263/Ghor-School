@@ -64,19 +64,33 @@ fetch(courseApiUrl)
         </div>
         <!-- Enroll Button -->
         <div class="enroll-container text-center mt-4">
-            <button class="btn btn-primary btn-lg" 
+            <button class="btn btn-lg" id="enroll-btn"
                     onclick="enrollCourse(${course.id})"
                     style="background-color: ${course.paid ? '#004085' : 'green'};">
                 Enroll
             </button>
             <p id="enroll-message" class="mt-3"></p>
         </div>
+
         <!-- Course Description -->
         <p class="text-muted">${course.description}</p>
 
 
     </div>
 </div>
+<style>
+    /* Default button styles */
+    #enroll-btn {
+        color: white;
+        transition: background-color 0.3s ease; /* Smooth transition */
+    }
+
+    /* Hover effect */
+    #enroll-btn:hover {
+        background-color: ${course.paid ? '#003366' : 'darkgreen'};
+    }
+</style>
+
         `;
     })
     .catch(error => {
