@@ -3,6 +3,9 @@ body {
     background-color: #84c6ffa9;
     margin: 0;
 }
+
+
+
 .course-detail-container {
     background-color: #fff;
     padding: 20px;
@@ -11,41 +14,51 @@ body {
     max-width: 1200px;
     margin: 0 auto;
 }
+
 .course-thumbnail {
     max-width: 100%;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 .course-info {
     margin-top: 20px;
 }
+
 .course-info h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
     color: #004085;
 }
+
 .course-info p {
     font-size: 1.1rem;
     margin: 10px 0;
 }
+
 .course-info .instructor {
     display: flex;
     align-items: center;
     margin-top: 20px;
 }
+
 .course-info .instructor img {
     width: 60px;
     height: 60px;
     border-radius: 50%;
     margin-right: 15px;
 }
+
 .course-info .instructor p {
     font-size: 1.1rem;
     margin: 0;
 }
+
 .skills-list {
     margin-top: 20px;
 }
+
+
 .skills-list span {
     color: #fff;
     padding: 5px 10px;
@@ -100,7 +113,7 @@ body {
 }
 
 .btn-primary:hover {
-    background-color:  #268836;
+    background-color: #268836;
     color: #ffffff;
 }
 
@@ -113,14 +126,12 @@ body {
     font-size: 1rem;
 }
 
-
-
 #top-detail {
 display: block;
 }
 
 #course {
-    width: 55%;
+    width: 70%;
     padding: 20px;
     margin: auto;
     box-shadow: 40px 40px 10px rgba(0, 0, 0, 0.1); 
@@ -140,7 +151,7 @@ display: block;
 }
 #thumbnail-img{
     background-color: white;
-    width: 50%;
+    width: 30%;
 }
 
 #reviews_course_details
@@ -164,8 +175,6 @@ display: block;
     align-self:center ;
     margin-top: 20px;
     margin-bottom: 20px;
-
-
 }
 /* General Form Styles */
 #add-review {
@@ -262,3 +271,4 @@ textarea#review_text {
     align-items: center;
     justify-content: space-around;
 }
+
