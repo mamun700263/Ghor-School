@@ -16,7 +16,7 @@ function submitForm(event) {
 
     // Password strength validation
     if (!isValidPassword(password)) {
-        errorMessageElement.innerText = 'Password must be at least 8 characters long and include a combination of uppercase letters, lowercase letters, numbers, and special characters.';
+        errorMessageElement.innerText = 'Password must be at least 8 characters long and include a combination of uppercase letters, lowercase letters, numbers, and special characters as !@#$%^&*(),.?":{}|<>.';
         return;
     }
 

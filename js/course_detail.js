@@ -271,7 +271,7 @@ document.getElementById('reviewForm').addEventListener('submit', function(event)
     .then(data => {
         if (data.message) {
             // Display success message
-            displayMessage('Review submitted successfully!', 'success');
+            displayMessage('Review submitted successfully! please refresh', 'success');
             location.reload();
             // Create new review element and append to the review list
             const newReview = `
