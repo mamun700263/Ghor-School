@@ -117,7 +117,7 @@ fetch(courseApiUrl)
                 messageElement.innerText = 'Successfully enrolled in the course!';
                 messageElement.style.color = 'green';
             } else {
-                messageElement.innerText = data.message || 'Failed to enroll in the course.';
+                messageElement.innerText = data.message || 'Failed to enroll in the course.Please Login';
                 messageElement.style.color = 'red';
             }
         })
